@@ -1,0 +1,38 @@
+<div class="mostServView">
+  <blockquote class="secHead">
+    <div class="paginator">
+      <p-paginator
+        [first]="first"
+        [rows]="rows"
+        [totalRecords]="services.length"
+        (onPageChange)="onPageChange($event)"
+        [showJumpToPageDropdown]="false"
+        [showPageLinks]="false"
+        [showFirstLastIcon]="false"
+      ></p-paginator>
+
+      <p class="pages">
+        <span> {{ "page" | translate }}</span>
+        <span> {{ page }} </span>
+        <span> {{ "of" | translate }}</span>
+        <span> {{ pageCount }}</span>
+      </p>
+    </div>
+
+    <h3 class="btn btn-outline-mainRed fw-bold">
+      {{ "most viewed services" | translate }}
+    </h3>
+  </blockquote>
+
+  <ul class="servCont">
+    @for (item of showServices; track item.id) {
+    <li>
+      <app-card [item]="item"></app-card>
+    </li>
+    }@empty {
+    <div class="notFound">
+      {{ "Not Found" | translate }}
+    </div>
+    }
+  </ul>
+</div>

@@ -1,0 +1,184 @@
+// *___________global btns_________________
+// ________________________________________
+.btn-mainRed {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  background-color: var(--main-re);
+  color: var(--white);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: #e86c6e;
+  }
+}
+
+.btn-selectRed {
+  padding: 0.6rem;
+  text-align: center;
+  background-color: transparent;
+  color: var(--main-re);
+  border: transparent;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  font-weight: 600;
+  &:hover {
+    color: var(--white);
+    background-color: var(--main-re);
+  }
+}
+
+.btn-outline-mainRed {
+  padding: 0.6rem;
+  text-align: center;
+  background-color: var(--white);
+  color: var(--main-gr);
+  border: thin solid var(--main-re);
+  outline: none;
+  box-shadow: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: var(--main-re);
+    color: var(--white);
+  }
+}
+
+// *___________global Mixin_________________
+// _________________________________________
+
+@mixin flex($dir, $content, $align, $gap) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $content;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin grid($num1, $num2, $content, $align, $gap) {
+  display: grid;
+  grid-template-columns: $num1, $num2;
+  justify-content: $content;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin gridReapte($px, $content, $align, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($px, 1fr));
+  justify-content: $content;
+  align-items: $align;
+  gap: $gap;
+}
+
+// *___________global _________________
+// _________________________________________
+.input-text {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  outline: none;
+  &:focus {
+    border-color: var(--main-gr);
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #66949e61;
+  }
+}
+
+:host ::ng-deep {
+  p-dropdown.p-element {
+    .p-dropdown {
+      width: 100%;
+    }
+
+    .p-dropdown .p-dropdown-label.p-placeholder {
+      color: #66949e;
+      font-weight: 800;
+    }
+
+    .p-dropdown:not(.p-disabled):hover {
+      border-color: var(--main-gr);
+    }
+
+    .p-dropdown:not(.p-disabled).p-focus {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: 0 0 0 0.2rem #66949e7c;
+      border-color: var(--main-gr);
+    }
+
+    span.p-element.p-dropdown-label {
+      padding: 0.6rem;
+    }
+  }
+
+  .p-sidebar {
+    .p-sidebar-header {
+      justify-content: space-between;
+      .logo {
+        img {
+          width: 85px;
+        }
+      }
+    }
+
+    .p-sidebar-content {
+      margin-top: 1rem;
+      ul {
+        @include flex(column, flex-start, flex-start, 1rem);
+        li {
+          color: var(--main-gr);
+          font-weight: 600;
+          cursor: pointer;
+          // &:hover {
+          //   color: var(--white);
+          // }
+          .arrow {
+            i {
+              font-size: 0.6rem;
+            }
+          }
+        }
+        li.active {
+          color: var(--main-re);
+        }
+      }
+    }
+  }
+
+  // paginator
+  .p-paginator.p-component {
+    flex-wrap: nowrap;
+    .p-paginator-prev,
+    .p-paginator-next {
+      &:hover {
+        background: transparent;
+        border-color: transparent;
+        color: var(--main-re);
+      }
+      > .p-element.p-icon-wrapper {
+        padding: 0.3rem;
+        background-color: #f1f1f1;
+        color: var(--main-re);
+        border-radius: 0.2rem;
+        > svg {
+          // color: var(--main-re);
+          width: fit-content;
+          height: 3vh;
+        }
+      }
+    }
+  }
+}

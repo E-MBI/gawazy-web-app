@@ -1,0 +1,70 @@
+<section class="home container">
+  <header class="search" [ngClass]="{ 'dir-ar': lang == 'ar' }">
+    <label for="sreach">
+      <input
+        type="text"
+        class="form-control input-text"
+        name="search"
+        id="search"
+        (keyup)="bigSearch($event)"
+        placeholder="البحث..."
+      />
+      <i
+        class="bi bi-search"
+        [ngClass]="{ left: lang == 'ar', right: lang == 'en' }"
+      ></i>
+    </label>
+
+    <div class="selection">
+      @if (lang == 'ar' ) {
+      <p-dropdown
+        [options]="departments"
+        [(ngModel)]="depart"
+        optionLabel="name"
+        [showClear]="false"
+        placeholder=" كل الاقسام "
+      ></p-dropdown>
+
+      }@else{
+      <p-dropdown
+        [options]="departments"
+        [(ngModel)]="depart"
+        optionLabel="name"
+        [showClear]="false"
+        placeholder="All Departments"
+      ></p-dropdown>
+      }
+    </div>
+
+    <button class="btn btn-mainRed">{{ "search" | translate }}</button>
+  </header>
+
+  <!-- swiper component -->
+  <div class="catSlider">
+    <app-swiper
+      [config]="configCats"
+      [slidesPerView]="slidePerViewCats"
+      [navigation]="navigationCats"
+    ></app-swiper>
+  </div>
+
+  <!-- services component -->
+  <div class="servicesComp">
+    <app-servs-comp></app-servs-comp>
+  </div>
+
+  <!-- offer component -->
+  <div class="offersComp">
+    <app-offer-comp></app-offer-comp>
+  </div>
+
+  <!-- Most services view component -->
+  <div class="mostServsViewComp">
+    <app-serv-most-view></app-serv-most-view>
+  </div>
+
+  <!-- Most offers view component -->
+  <div class="mostOffersViewComp">
+    <app-offer-most-view></app-offer-most-view>
+  </div>
+</section>

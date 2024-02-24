@@ -1,0 +1,26 @@
+@import "../../../../assets/_general";
+.offers {
+  margin-top: 2rem;
+  .secHead {
+    margin: 0rem;
+    width: 100%;
+    @include flex(row, space-between, center, 0.5rem);
+    border-bottom: 2px solid var(--main-gr);
+    .paginator {
+      @include flex(row, space-between, center, 0.5rem);
+
+      .pages {
+        color: var(--main-gr);
+        span {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+
+  .servCont {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    @include gridReapte(300px, center, center, 0.5rem);
+  }
+}

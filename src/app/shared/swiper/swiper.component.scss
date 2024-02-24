@@ -1,0 +1,126 @@
+@import "../../../assets/_general";
+
+.swiperCats {
+  margin: 1.5rem 0rem;
+  .swiper {
+    width: 100%;
+    height: 171px;
+    display: flex;
+    justify-content: center;
+    .swiper-pagination {
+      .swiper-pagination-bullet {
+        cursor: pointer;
+        padding: 0.5rem;
+        background: #ffffff;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        display: inline-block;
+        background-color: var(--sec-co);
+        box-shadow: 0px 0px 0px 2px #ffffff;
+      }
+    }
+
+    .catParent {
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      @include flex(column, center, center, 0.5rem);
+      .catImg {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0px 3px 6px #dedede;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .catName {
+        width: 100%;
+        color: #66949e;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+    }
+    // > .swiper-wrapper {
+    //   .swiper-slide {
+    //   }
+    // }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+      padding: 1.5rem;
+      border-radius: 50%;
+      background: #f3f3f3;
+      box-shadow: 0 0 0.2rem 0.1rem rgb(0 0 0 / 18%);
+      &::after {
+        font-weight: 800;
+        font-size: 1.6rem;
+        color: #ff6801;
+      }
+    }
+  }
+}
+
+//___________________ Media Query___________________________
+//___________________ Media Query___________________________
+
+// small mobile
+@media (max-width: 450px) {
+  .swiperCats {
+    .swiper {
+      .catParent {
+        .catImg {
+          width: 45px !important;
+          height: 45px !important;
+        }
+      }
+      // .swiper-wrapper {
+      //   .swiper-slide {
+      //   }
+      // }
+    }
+  }
+}
+
+// large mobile
+@media (min-width: 450px) and (max-width: 767px) {
+  .swiperCats {
+    .swiper {
+      .catParent {
+        .catImg {
+          width: 65px !important;
+          height: 65px !important;
+        }
+      }
+      // .swiper-wrapper {
+      //   .swiper-slide {
+      //   }
+      // }
+    }
+  }
+}
+
+// tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+  .swiperCats {
+    .swiper {
+      .catParent {
+        .catImg {
+          width: 70px !important;
+          height: 70px !important;
+        }
+      }
+      // .swiper-wrapper {
+      //   .swiper-slide {
+      //   }
+      // }
+    }
+  }
+}

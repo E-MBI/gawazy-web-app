@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="photo">
+    <i class="bi bi-heart-fill love" (click)="addToFav(item.id)"></i>
+    @if (item.image) {
+    <img [src]="item.image" class="card-img-top" alt="card image" />
+    }@else {
+    <img
+      src="/assets/images/home/placeholder.jpg"
+      class="card-img-top"
+      alt="default image"
+    />
+    }
+
+    <!--discount  -->
+    @if(item.discount){
+    <blockquote class="offer">
+      <p class="discount">{{ item.discount }}% {{ "discount" | translate }}</p>
+      <p class="period">{{ item.period }}</p>
+    </blockquote>
+    }
+  </div>
+
+  <div class="card-body">
+    <div class="title">
+      <blockquote class="price">
+        <strong>{{ "from" | translate }} {{ "500.00" }}</strong>
+        <strong>{{ "to" | translate }} {{ "1000.00" }}</strong>
+      </blockquote>
+      <h4>{{ item.name }}</h4>
+    </div>
+
+    <div class="info">
+      <p>{{ item.city }}</p>
+      <p>{{ item.category }}</p>
+    </div>
+
+    <div class="rating">
+      <blockquote class="stars">
+        @for (item of activeSt; track $index) {
+        <i class="bi bi-star-fill active"></i>
+        } @for (item of notActiveSt; track $index) {
+        <i class="bi bi-star notActive"></i>
+        }
+      </blockquote>
+
+      <ul class="views">
+        <li>
+          <i class="bi bi-share"></i>
+          <span>{{ item.share }}</span>
+        </li>
+
+        <li>
+          <i class="bi bi-hand-thumbs-up"></i>
+          <span>{{ item.like }}</span>
+        </li>
+
+        <li>
+          <i class="bi bi-hand-thumbs-down"></i>
+          <span>{{ item.disLike }}</span>
+        </li>
+
+        <li>
+          <i class="bi bi-eye"></i>
+          <span>{{ item.views }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <a href="#" class="btn btn-mainRed">{{ "more" | translate }}</a>
+  </div>
+</div>

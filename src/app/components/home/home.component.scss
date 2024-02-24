@@ -1,0 +1,111 @@
+@import "../../../assets/_general";
+
+.home {
+  header {
+    padding: 0.5rem;
+    @include flex(row, space-between, center, 0.5rem);
+
+    button {
+      width: 25%;
+    }
+
+    .selection {
+      width: 25%;
+    }
+
+    label {
+      width: 50%;
+      position: relative;
+
+      i.left {
+        position: absolute;
+        top: 25%;
+        left: 2%;
+        color: var(--main-gr);
+        font-weight: 800;
+      }
+
+      i.right {
+        position: absolute;
+        top: 25%;
+        right: 2%;
+        color: var(--main-gr);
+        font-weight: 800;
+      }
+    }
+  }
+
+  .catSlider {
+    width: 100%;
+  }
+
+  .services {
+    .secHead {
+      margin: 0rem;
+      width: 100%;
+      @include flex(row, space-between, center, 0.5rem);
+      border-bottom: 2px solid var(--main-gr);
+      .paginator {
+        @include flex(row, space-between, center, 0.5rem);
+
+        .pages {
+          color: var(--main-gr);
+          span {
+            font-weight: 800;
+          }
+        }
+      }
+    }
+
+    .servCont {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      @include gridReapte(300px, center, center, 0.5rem);
+    }
+  }
+}
+
+//___________________ Media Query___________________________
+//___________________ Media Query___________________________
+
+// small mobile
+@media (max-width: 450px) {
+  .home {
+    header {
+      flex-direction: column;
+      label {
+        width: 100%;
+      }
+      .selection {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// large mobile
+@media (min-width: 450px) and (max-width: 767px) {
+  .home {
+    header {
+      flex-direction: column;
+      label {
+        width: 100%;
+      }
+      .selection {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+  .home {
+  }
+}

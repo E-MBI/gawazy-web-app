@@ -1,0 +1,148 @@
+<header>
+  <div class="container">
+    <div class="box">
+      <div class="logo" routerLink="home">
+        @if(lang==="ar"){
+        <img src="/assets/images/logo/logo-ar.png" alt="logo" />
+        }@else if (lang==='en') {
+        <img src="/assets/images/logo/logo-en.png" alt="logo" />
+        }
+      </div>
+
+      <div class="lang" appClickOutSide (clickOutSide)="controlMenu(false)">
+        @if(lang==="ar"){
+        <button class="btn btn-selectRed" (click)="controlMenu(true)">
+          <span>
+            <img
+              src="/assets/images/flags/egypt.jpg"
+              width="25px"
+              height="20px"
+              alt="country-flag"
+            />
+          </span>
+
+          {{ "header.ar" | translate }}
+
+          <span class="arrow">
+            <i class="bi bi-chevron-down"></i>
+          </span>
+        </button>
+
+        }@else if (lang==='en') {
+        <button class="btn btn-selectRed" (click)="controlMenu(true)">
+          <span>
+            <img
+              src="/assets/images/flags/UK.jpg"
+              width="25px"
+              height="20px"
+              alt="country-flag"
+            />
+          </span>
+          {{ "header.en" | translate }}
+
+          <span class="arrow">
+            <i class="bi bi-chevron-down"></i>
+          </span>
+        </button>
+
+        } @if (openMenu) {
+        <ul class="lang-menu">
+          <li
+            (click)="switchLang('ar'); controlMenu(false)"
+            [ngClass]="{ 'dir-ar': lang == 'ar' }"
+          >
+            <span>
+              <img
+                src="/assets/images/flags/egypt.jpg"
+                width="25px"
+                height="20px"
+                alt="country-flag"
+              />
+            </span>
+
+            {{ "header.ar" | translate }}
+          </li>
+          <li
+            (click)="switchLang('en'); controlMenu(false)"
+            [ngClass]="{ 'dir-ar': lang == 'ar' }"
+          >
+            <span>
+              <img
+                src="/assets/images/flags/UK.jpg"
+                width="25px"
+                height="20px"
+                alt="country-flag"
+              />
+            </span>
+
+            {{ "header.en" | translate }}
+          </li>
+        </ul>
+        }
+      </div>
+    </div>
+
+    <div class="links">
+      <ul>
+        <li routerLink="/support" routerLinkActive="active">
+          {{ "header.help" | translate }}
+        </li>
+
+        <li routerLink="/departments" routerLinkActive="active">
+          <span class="arrow">
+            <i class="bi bi-chevron-right"></i>
+          </span>
+          {{ "header.departments" | translate }}
+        </li>
+
+        <li routerLink="home" routerLinkActive="active">
+          {{ "home" | translate }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-mainRed" routerLink="log-in">
+        {{ "header.login" | translate }}
+      </button>
+
+      <!-- <button class="btn btn-mainRed">
+        {{ "header.logout" | translate }}
+      </button> -->
+    </div>
+
+    <div class="menu" (click)="showSideBar = true">
+      <i class="bi bi-list"></i>
+    </div>
+  </div>
+</header>
+
+<!-- __________________________Mobile________________________________ -->
+<!-- ________________________________________________________________ -->
+<p-sidebar [(visible)]="showSideBar">
+  <ng-template pTemplate="header">
+    <div class="logo" routerLink="home">
+      @if(lang==="ar"){
+      <img src="/assets/images/logo/logo-ar.png" alt="logo" />
+      }@else if (lang==='en') {
+      <img src="/assets/images/logo/logo-en.png" alt="logo" />
+      }
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <ul>
+      <li routerLink="home" routerLinkActive="active">
+        {{ "home" | translate }}
+      </li>
+
+      <li routerLink="/departments" routerLinkActive="active">
+        {{ "header.departments" | translate }}
+      </li>
+
+      <li routerLink="/support" routerLinkActive="active">
+        {{ "header.help" | translate }}
+      </li>
+    </ul>
+  </ng-template>
+</p-sidebar>

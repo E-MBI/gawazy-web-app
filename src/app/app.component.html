@@ -1,0 +1,15 @@
+<main>
+  @if (!loginPage) {
+  <app-header></app-header>
+  }
+
+  <!-- content -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- footer -->
+  @if (!loginPage) {
+  <app-footer></app-footer>
+  }
+</main>

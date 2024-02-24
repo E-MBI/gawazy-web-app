@@ -1,0 +1,73 @@
+<footer>
+  <div class="cont">
+    <blockquote class="container">
+      <div class="social">
+        <span>
+          <i class="bi bi-youtube"></i>
+        </span>
+
+        <span>
+          <i class="bi bi-pinterest"></i>
+        </span>
+
+        <span>
+          <i class="bi bi-linkedin"></i>
+        </span>
+
+        <span>
+          <i class="bi bi-twitter-x"></i>
+        </span>
+
+        <span>
+          <i class="bi bi-instagram"></i>
+        </span>
+
+        <span>
+          <i class="bi bi-facebook"></i>
+        </span>
+      </div>
+
+      <div class="mainCont">
+        <ul class="links">
+          <li>
+            <a routerLink="/home">{{ "home" | translate }}</a>
+          </li>
+
+          <li>
+            <a routerLink="/services">{{ "services" | translate }}</a>
+          </li>
+
+          <li>
+            <a routerLink="/offers">{{ "offers" | translate }}</a>
+          </li>
+
+          <li>
+            <a routerLink="/technical-support">{{
+              "technical support" | translate
+            }}</a>
+          </li>
+        </ul>
+
+        <div class="logo">
+          @if (lang=='ar') {
+          <img src="/assets/images/logo/logo-ar.png" alt="arabic logo" />
+
+          }@else if(lang=='en') {
+          <img src="/assets/images/logo/logo-en.png" alt="english logo" />
+          }
+        </div>
+      </div>
+    </blockquote>
+  </div>
+
+  <div class="copyRight">
+    <blockquote class="container">
+      <span>
+        {{ "privacy policy - terms of use" | translate }}
+      </span>
+      <span>
+        {{ "all rights reserved to the company" | translate }} &copy; 2024
+      </span>
+    </blockquote>
+  </div>
+</footer>

@@ -1,0 +1,66 @@
+@import "../../../assets/_general";
+
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  color: var(--white);
+  .cont {
+    padding: 1rem 0rem;
+    background-color: var(--main-re);
+    .container {
+      @include flex(row, space-between, center, 0.2rem);
+      .social {
+        @include flex(row, flex-start, center, 0.5rem);
+        span {
+          display: flex;
+          border-radius: 50%;
+          background-color: var(--white);
+          padding: 0.4rem;
+          cursor: pointer;
+          i {
+            display: flex;
+            color: var(--main-gr);
+          }
+        }
+      }
+
+      .mainCont {
+        @include flex(row, flex-end, flex-start, 2.5rem);
+        .links {
+          padding-top: 0.3rem;
+          li {
+            width: 7vw;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
+            border-bottom: thin solid var(--white);
+            text-align: right;
+            a {
+              color: var(--white);
+            }
+          }
+        }
+
+        .logo {
+          img {
+            width: 134px;
+            height: 123px;
+          }
+        }
+      }
+    }
+  }
+
+  .copyRight {
+    margin-top: 0.25rem;
+    background-color: var(--main-gr);
+    .container {
+      @include flex(row, space-between, center, 0.5rem);
+      span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 0.5rem 0rem;
+        display: inline-block;
+      }
+    }
+  }
+}

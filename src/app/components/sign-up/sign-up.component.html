@@ -1,0 +1,13 @@
+<section class="signUp">
+  <div class="controls">
+    <button class="btn btn-mainRed" routerLink="/sign-user">
+      {{ "service-user" | translate }}
+    </button>
+
+    <button class="btn btn-mainRed" routerLink="/sign-vendor">
+      {{ "service-provider" | translate }}
+    </button>
+  </div>
+
+  <a class="link" (click)="goBack()">{{ "previous" | translate }}</a>
+</section>
