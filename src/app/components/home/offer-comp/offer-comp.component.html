@@ -27,7 +27,9 @@
   <ul class="servCont">
     @for (item of showOffers; track item.id) {
     <li>
-      <app-card [item]="item"></app-card>
+      <div class="item" [routerLink]="['/offers', item.id]">
+        <app-card [item]="item"></app-card>
+      </div>
     </li>
     }@empty {
     <div class="notFound">

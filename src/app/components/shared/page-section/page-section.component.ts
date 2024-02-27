@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardComponent } from '../../shared/card/card.component';
 import { RouterLink } from '@angular/router';
+
 interface PageEvent {
   first: number;
   rows: number;
   page: number;
   pageCount: number;
 }
+
 @Component({
-  selector: 'app-servs-comp',
+  selector: 'app-page-section',
   standalone: true,
   imports: [
     CommonModule,
@@ -20,10 +22,13 @@ interface PageEvent {
     RouterLink,
     CardComponent,
   ],
-  templateUrl: './servs-comp.component.html',
-  styleUrl: './servs-comp.component.scss',
+  templateUrl: './page-section.component.html',
+  styleUrl: './page-section.component.scss',
 })
-export class ServsCompComponent implements OnInit {
+export class PageSectionComponent implements OnInit {
+  // @Input() serivces: any[] = [];
+  @Input() title: string = '';
+
   serivces: any[] = [
     {
       id: 12,
@@ -178,12 +183,12 @@ export class ServsCompComponent implements OnInit {
       rate: 4,
     },
   ];
-
   showServices: any[] = [];
   first: number = 0;
   rows: number = 4;
   page: number = 1;
   pageCount: number = 0;
+
   // ___________________________________________________________
 
   constructor() {}
@@ -193,7 +198,7 @@ export class ServsCompComponent implements OnInit {
     this.pageCount = Math.ceil(this.serivces.length / this.rows);
   }
 
-  // ______________________other Methods________________________
+  // ______________________Other Methods________________________
   // ___________________________________________________________
 
   onPageChange(event: PageEvent | any) {

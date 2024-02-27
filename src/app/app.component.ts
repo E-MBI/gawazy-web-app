@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { GlobalService } from './shared/services/global.service';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { GlobalService } from './shared/services/global.service';
     HeaderComponent,
     FooterComponent,
     TranslateModule,
+    LoadingComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

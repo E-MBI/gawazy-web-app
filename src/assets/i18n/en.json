@@ -42,6 +42,10 @@
   "male": "Male",
   "female": "Female",
   "agree_terms": "I agree to the terms of use and privacy policy",
-  "user_trems1": "Your personal data will be used to support your experience on this website and to manage access to it Your account",
-  "user_trems2": "And for other purposes described in our Privacy Policy."
+  "user_terms_1": "Your personal data will be used to support your experience on this website and to manage access to it Your account",
+  "user_terms_2": "And for other purposes described in our Privacy Policy.",
+  "service user": "Service User",
+  "service provider": "Service Provider",
+  "vendor name": "Vendor Name",
+  "service type": "Service Type"
 }

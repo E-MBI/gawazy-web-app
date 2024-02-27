@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardComponent } from '../../shared/card/card.component';
+import { RouterLink } from '@angular/router';
 interface PageEvent {
   first: number;
   rows: number;
@@ -12,7 +13,13 @@ interface PageEvent {
 @Component({
   selector: 'app-offer-comp',
   standalone: true,
-  imports: [CommonModule, TranslateModule, PaginatorModule, CardComponent],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    PaginatorModule,
+    RouterLink,
+    CardComponent,
+  ],
   templateUrl: './offer-comp.component.html',
   styleUrl: './offer-comp.component.scss',
 })

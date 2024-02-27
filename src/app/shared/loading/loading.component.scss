@@ -1,0 +1,13 @@
+@import "../../../assets/_general";
+
+.loading {
+  width: 100%;
+  height: 100%;
+  background: #fff8ee;
+  @include flex(column, center, center, 0rem);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.5s;
+}
