@@ -1,0 +1,28 @@
+<div class="swiperCats container-fluid">
+  <swiper
+    [config]="config"
+    [slidesPerView]="slidesPerView"
+    [navigation]="navigation"
+    class="swiper"
+  >
+    @for (item of categories; track $index) {
+    <ng-template swiperSlide>
+      <div class="catParent" [routerLink]="['/category', item.id]">
+        <blockquote class="m-0 catImg">
+          @if (item.image) {
+          <img src="{{ item.image }}" alt="{{ item.name }}" />
+          }@else {
+          <img
+            src="/assets/images/home/placeholder.jpg"
+            alt="{{ item.name }}"
+          />
+          }
+        </blockquote>
+        <blockquote class="m-0 catName">
+          {{ lang == "ar" ? item.ar_name : item.name }}
+        </blockquote>
+      </div>
+    </ng-template>
+    }
+  </swiper>
+</div>

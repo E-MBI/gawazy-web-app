@@ -1,0 +1,646 @@
+@import "../../../../../assets/_general";
+.service {
+  .info {
+    margin-bottom: 1rem;
+    .mainImage {
+      width: 100%;
+      position: relative;
+      height: 407px;
+      border-radius: 16px;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      i {
+        position: absolute;
+        top: 4%;
+        right: 4%;
+        color: var(--white);
+        font-size: 1.5rem;
+      }
+    }
+
+    .header {
+      @include flex(row-reverse, space-between, stretch, 0.5rem);
+      flex-wrap: wrap;
+      row-gap: 1rem;
+      .providerInfo {
+        width: 32%;
+        @include flex(column, flex-start, center, 0.2rem);
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 1.5rem;
+        border-radius: 1rem;
+        padding-top: 0rem;
+        position: relative;
+        top: -1rem;
+        background-color: var(--white);
+        .title {
+          text-align: center;
+          position: relative;
+          top: -2rem;
+          img {
+            width: 45%;
+            border-radius: 50%;
+            border: 2px solid #f27b7d;
+          }
+
+          .name {
+            color: var(--main-re);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0rem;
+            margin-top: 0.8rem;
+          }
+
+          .serviceName {
+            color: var(--main-gr);
+            font-size: 1.7rem;
+            font-weight: 100;
+          }
+
+          .city {
+            color: var(--main-gr);
+            font-weight: 500;
+            font-size: 1.3rem;
+          }
+
+          .accDate {
+            font-weight: 400;
+            font-size: 1.4rem;
+            color: var(--main-gr);
+          }
+        }
+
+        // price
+        .price {
+          margin: 0.8rem 0rem;
+          span {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--main-re);
+          }
+
+          strong {
+            font-size: 1.5rem;
+            background-color: var(--main-gr);
+            color: var(--white);
+            padding: 0.2rem 0.8rem;
+            border-radius: 0.5rem;
+            margin: 0rem 0.5rem;
+          }
+        }
+        // share link
+        .share {
+          margin-bottom: 0.3rem;
+          width: 100%;
+          @include flex(row, center, center, 0.5rem);
+          i {
+            display: flex;
+            border-radius: 50%;
+            background-color: var(--main-ya);
+            color: var(--main-gr);
+            padding: 0.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 0 2px 0px #c8c8c8;
+          }
+        }
+
+        button.servBtn {
+          padding: 0.3rem 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        button.favBtn {
+          margin-bottom: 0.3rem;
+          border-radius: 3rem;
+          padding: 0.3rem 2rem;
+          width: 80%;
+          text-align: center;
+          position: relative;
+          i.ar-lang {
+            font-size: 1.2rem;
+            position: absolute;
+            top: 15%;
+            left: 10%;
+          }
+
+          i.en-lang {
+            font-size: 1.2rem;
+            position: absolute;
+            top: 15%;
+            right: 10%;
+          }
+        }
+
+        .controls {
+          margin-top: 0.3rem;
+          @include flex(row, center, center, 0.5rem);
+          flex-wrap: wrap;
+          li {
+            border-radius: 2rem;
+            padding: 0.2rem 1.5rem;
+            i {
+              font-weight: bold;
+              display: flex;
+              padding: 0.3rem;
+              color: var(--white);
+              border-radius: 50%;
+              border: 2px solid var(--white);
+            }
+
+            i.bi-whatsapp,
+            i.bi-chat-dots,
+            .bi-phone {
+              padding: 0rem;
+              border-color: transparent;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      // * ______________________ text & rating _____________________
+      .cont {
+        width: 67%;
+        //______ services __________
+        .services {
+          margin: 0.5rem 0rem;
+          width: 100%;
+          @include flex(row, space-between, center, 0.5rem);
+          border-bottom: 2px solid #ddd;
+          .paginator {
+            @include flex(row, space-between, center, 0.5rem);
+
+            .pages {
+              color: var(--main-gr);
+              span {
+                font-weight: 800;
+              }
+            }
+          }
+          .btn {
+            color: var(--main-re);
+            &:hover {
+              color: var(--white);
+            }
+          }
+        }
+
+        //______ services slider __________
+        .serviceSlider {
+          width: 100%;
+          overflow-x: hidden;
+          @include flex(row, flex-start, center, 0.6rem);
+          li {
+            width: 25%;
+            padding: 0.2rem;
+
+            img {
+              box-shadow: 0 0 7px -3px var(--main-gr);
+              width: 100%;
+              height: 150px;
+              object-fit: cover;
+              border-radius: 1rem;
+            }
+          }
+        }
+
+        //______ text & rating __________
+        .text {
+          margin-top: 1.5rem;
+          @include flex(row, space-between, flex-start, 0.5rem);
+          flex-wrap: wrap;
+          row-gap: 1.3rem;
+          .rating-price {
+            width: 45%;
+            // head service info
+            .head {
+              @include flex(row, space-between, start, 0.5rem);
+              .share {
+                @include flex(row, flex-start, center, 0.8rem);
+                p {
+                  @include flex(column, flex-start, center, 0.3rem);
+                  i {
+                    display: flex;
+                    border-radius: 50%;
+                    background-color: var(--main-ya);
+                    color: var(--main-gr);
+                    padding: 0.5rem;
+                    font-size: 1.2rem;
+                    // cursor: pointer;
+                    box-shadow: 0 0 2px 0px #c8c8c8;
+                  }
+
+                  span {
+                    color: var(--main-re);
+                    font-weight: 600;
+                  }
+                }
+              }
+
+              // stars
+              .stars {
+                margin-top: 0.2rem;
+                @include flex(row, flex-start, center, 0.5rem);
+                li {
+                  i {
+                    color: #ababab;
+                    font-weight: bold;
+                    font-size: 1.3rem;
+                  }
+                }
+              }
+            }
+
+            // rating
+            .rating {
+              margin-top: 1rem;
+              @include flex(column-reverse, flex-start, stretch, 0.5rem);
+              li {
+                @include flex(row, space-between, center, 0.8rem);
+                width: 100%;
+                > span {
+                  color: var(--main-gr);
+                  white-space: nowrap;
+                }
+
+                blockquote {
+                  width: 70%;
+                  position: relative;
+                  background: #f5f5f5;
+                  border: 0.25px solid #707070;
+                  border-radius: 5px;
+                  overflow: hidden;
+                  .actualprogress {
+                    background-color: #ffb200;
+                    display: block;
+                    padding: 0.7rem 0rem;
+                  }
+                  .userCount {
+                    color: var(--main-re);
+                    position: absolute;
+                    top: 0px;
+                    right: 2px;
+                    z-index: 2;
+                  }
+                }
+
+                strong {
+                  color: var(--main-gr);
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+
+          .about-provider {
+            text-align: right;
+            width: 50%;
+
+            h5 {
+              color: var(--main-gr);
+            }
+
+            p {
+              color: var(--main-gr);
+              width: 85%;
+              margin-left: auto;
+            }
+
+            button.btn-mainRed {
+              margin-top: 1.2rem;
+              padding: 0.2rem 2rem;
+              border-radius: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // _______________ comments section ____________
+  .comments {
+    margin: 1rem 0rem;
+    padding: 1rem 0.5rem;
+    @include flex(row, space-between, start, 0.5rem);
+    flex-wrap: wrap-reverse;
+
+    .reviews {
+      padding-top: 0.5rem;
+      width: 50%;
+      @include flex(column, space-between, stretch, 0.5rem);
+
+      header {
+        width: 100%;
+        border-bottom: thin solid var(--main-gr);
+        padding-bottom: 0.5rem;
+        > button {
+          color: var(--main-re);
+          &:hover {
+            color: var(--white);
+          }
+        }
+      }
+
+      // all comments
+      .allcomments {
+        margin: 1.5rem 0rem;
+        padding: 0.5rem;
+        @include flex(column, flex-start, flex-start, 0.5rem);
+        row-gap: 1rem;
+        height: 445px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 0.4em;
+          height: 0.4rem;
+        }
+
+        &::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 6px #b8b8b8;
+          border-radius: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          height: 10%;
+          border-radius: 0.5rem;
+          background-color: var(--main-gr);
+          // outline: 1px solid slategrey;
+        }
+
+        li {
+          width: 100%;
+          .userCont {
+            width: 100%;
+            margin-bottom: 1rem;
+            @include flex(row, space-between, start, 0.8rem);
+
+            .userImage {
+              margin: 0;
+              min-width: fit-content;
+              img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+              }
+            }
+
+            .userInfo {
+              @include flex(row, space-between, start, 1rem);
+              padding: 0.6rem 0rem;
+              padding-bottom: 1rem;
+              width: calc(100% - 100px);
+              position: relative;
+              &::after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                margin: 0rem auto;
+                background-color: #ddd;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+              }
+
+              .text {
+                @include flex(column, flex-start, start, 0rem);
+                margin: 0rem;
+                padding-top: 0.6rem;
+                h3 {
+                  margin: 0rem;
+                  font-weight: 800;
+                  color: var(--main-gr);
+                  white-space: nowrap;
+                  font-size: 1.2rem;
+                }
+                small {
+                  color: var(--main-gr);
+                }
+                .stars {
+                  margin-top: 0.3rem;
+                  @include flex(row, flex-start, center, 0.3rem);
+                  li {
+                    i {
+                      color: #ababab;
+                    }
+                  }
+                }
+              }
+
+              .control {
+                @include flex(row, flex-start, center, 0.5rem);
+                button {
+                  @include flex(column, flex-start, center, 0rem);
+                  border: none;
+                  outline: none;
+                }
+              }
+            }
+          }
+
+          .userComment {
+            color: var(--main-gr);
+          }
+        }
+      }
+
+      footer {
+        padding: 1rem;
+        padding-top: 1.5rem;
+        width: 100%;
+        text-align: center;
+        border: thin solid var(--main-gr);
+        border-radius: 1rem;
+
+        .userData {
+          margin-bottom: 1rem;
+          @include flex(row, flex-start, center, 1rem);
+          blockquote {
+            margin: 0;
+          }
+
+          .text {
+            @include flex(column, flex-start, start, 0rem);
+            h3 {
+              margin: 0rem;
+              font-weight: 800;
+              color: var(--main-gr);
+              font-size: 1.2rem;
+            }
+            small {
+              color: var(--main-gr);
+            }
+          }
+
+          .img {
+            min-width: fit-content;
+            img {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        label {
+          width: 100%;
+          input {
+            outline: none;
+            border: thin solid var(--main-gr);
+            border-radius: 1rem;
+            color: var(--main-gr);
+            font-size: 1rem;
+            font-weight: 800;
+          }
+        }
+
+        button {
+          margin-top: 1rem;
+          padding: 0.5rem 2.5rem;
+          border-radius: 2rem;
+        }
+      }
+    }
+
+    .ads {
+      background-color: #f6f6f670;
+      border: thin solid var(--main-gr);
+      padding: 0.8rem;
+      height: 830px;
+      width: 49%;
+    }
+  }
+
+  // _______________ services Provider services section ____________
+  .serviceProviderservices {
+    margin-top: 2rem;
+  }
+
+  // _______________ most Viewed services section ____________
+  .mostViewedservices {
+    margin-top: 2rem;
+  }
+}
+
+// _______________________media query_______
+// _______________________media query_______
+
+@media (max-width: 450px) {
+  .service {
+    .info {
+      .header {
+        .providerInfo {
+          width: 100%;
+        }
+
+        .cont {
+          width: 100%;
+          .text {
+            width: 100%;
+            .rating-price,
+            .about-provider {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .comments {
+      row-gap: 1.5rem;
+      .reviews {
+        width: 100%;
+        .allcomments {
+          li {
+            .userCont {
+              flex-wrap: wrap;
+              .userInfo {
+                width: 100%;
+                gap: 0.1rem;
+                .text {
+                  h3 {
+                    font-size: 1rem;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .ads {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 451px) and (max-width: 767px) {
+  .service {
+    .info {
+      .header {
+        .providerInfo {
+          width: 100%;
+        }
+
+        .cont {
+          width: 100%;
+          .text {
+            width: 100%;
+            .rating-price,
+            .about-provider {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .comments {
+      row-gap: 1.5rem;
+      .reviews {
+        width: 100%;
+      }
+
+      .ads {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .service {
+    .info {
+      .header {
+        .providerInfo {
+          width: 100%;
+        }
+
+        .cont {
+          width: 100%;
+          .text {
+            width: 100%;
+            .rating-price,
+            .about-provider {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .comments {
+      row-gap: 1.5rem;
+      .reviews {
+        width: 100%;
+      }
+
+      .ads {
+        width: 100%;
+      }
+    }
+  }
+}

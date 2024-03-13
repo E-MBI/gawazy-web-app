@@ -13,6 +13,8 @@ import {
 } from '@angular/common';
 
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -41,5 +43,7 @@ export const appConfig: ApplicationConfig = {
         disableImageLazyLoadWarning: true,
       },
     },
+    importProvidersFrom(ToastModule),
+    MessageService,
   ],
 };

@@ -1,3 +1,3 @@
 export const env = {
-  apiUrl: 'http://api.gawazy.com/api/',
+  apiUrl: 'https://api.gawazy.com/api/',
 };

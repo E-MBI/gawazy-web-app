@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardComponent } from '../../shared/card/card.component';
 import { RouterLink } from '@angular/router';
+import { GlobalService } from '../../../shared/services/global.service';
 
 interface PageEvent {
   first: number;
@@ -26,172 +27,24 @@ interface PageEvent {
   styleUrl: './page-section.component.scss',
 })
 export class PageSectionComponent implements OnInit {
-  // @Input() serivces: any[] = [];
+  @Input() serivces: any[] = [];
   @Input() title: string = '';
+  @Input() head: string = '';
+  @Input() providerName: string = '';
+  @Input() providerNameAr: string = '';
+  // ___________________________________________________________
 
-  serivces: any[] = [
-    {
-      id: 12,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      image: '/assets/images/home/p1.jpeg',
-      rate: 5,
-    },
-    {
-      id: 98,
-      name: ' 2 أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      // discount: 18,
-      // period: 'منذ سنة',
-      endPrice: 30,
-      rate: 4,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 3,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      image: '/assets/images/home/p2.jpg',
-      endPrice: 30,
-      rate: 1,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 4,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 2,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 4,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: ' دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 5,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 3,
-    },
-    {
-      id: 122,
-      name: 'أنتيكا-Antika',
-      category: 'دعوات زفاف',
-      city: 'كفر الشيخ',
-      views: 235,
-      like: 455,
-      disLike: 20,
-      share: 350,
-      startPrice: 10,
-      discount: 18,
-      period: 'منذ سنة',
-      endPrice: 30,
-      rate: 4,
-    },
-  ];
   showServices: any[] = [];
   first: number = 0;
   rows: number = 4;
   page: number = 1;
   pageCount: number = 0;
-
+  lang: string = 'ar';
   // ___________________________________________________________
 
-  constructor() {}
+  constructor(private glSer: GlobalService) {
+    this.glSer.$langObs.subscribe((val) => (this.lang = val));
+  }
 
   ngOnInit(): void {
     this.showServices = this.serivces.slice(0, 4);

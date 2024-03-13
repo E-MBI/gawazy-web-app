@@ -11,6 +11,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class CardComponent implements OnChanges {
   @Input('item') item: any;
+  @Input() routeUrl: string | number = '';
   activeSt!: any;
   notActiveSt!: any;
   // ________________________________________________

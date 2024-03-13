@@ -1,0 +1,181 @@
+<header>
+  <div class="container">
+    <blockquote class="box">
+      <div class="logo" routerLink="/home">
+        @if(lang==="ar"){
+        <img src="/assets/images/logo/logo-ar.png" alt="logo" />
+        }@else if (lang==='en') {
+        <img src="/assets/images/logo/logo-en.png" alt="logo" />
+        }
+      </div>
+
+      <div class="lang" appClickOutSide (clickOutSide)="controlMenu(false)">
+        @if(lang==="ar"){
+        <button class="btn btn-selectRed" (click)="controlMenu(true)">
+          <span>
+            <img
+              src="/assets/images/flags/egypt.jpg"
+              width="25px"
+              height="20px"
+              alt="country-flag"
+            />
+          </span>
+
+          {{ "header.ar" | translate }}
+
+          <span class="arrow">
+            <i class="bi bi-chevron-down"></i>
+          </span>
+        </button>
+
+        }@else if (lang==='en') {
+        <button class="btn btn-selectRed" (click)="controlMenu(true)">
+          <span>
+            <img
+              src="/assets/images/flags/UK.jpg"
+              width="25px"
+              height="20px"
+              alt="country-flag"
+            />
+          </span>
+          {{ "header.en" | translate }}
+
+          <span class="arrow">
+            <i class="bi bi-chevron-down"></i>
+          </span>
+        </button>
+
+        <!-- menu langs -->
+
+        } @if (openMenu) {
+        <ul class="lang-menu">
+          <li
+            (click)="switchLang('ar'); controlMenu(false)"
+            [ngClass]="{ 'dir-ar': lang == 'ar' }"
+          >
+            <span>
+              <img
+                src="/assets/images/flags/egypt.jpg"
+                width="25px"
+                height="20px"
+                alt="country-flag"
+              />
+            </span>
+
+            {{ "header.ar" | translate }}
+          </li>
+          <li
+            (click)="switchLang('en'); controlMenu(false)"
+            [ngClass]="{ 'dir-ar': lang == 'ar' }"
+          >
+            <span>
+              <img
+                src="/assets/images/flags/UK.jpg"
+                width="25px"
+                height="20px"
+                alt="country-flag"
+              />
+            </span>
+
+            {{ "header.en" | translate }}
+          </li>
+        </ul>
+        }
+      </div>
+
+      <div class="userInfo">
+        <span> اسم المستخدم </span>
+        @if(true){
+        <!-- <img src="" alt="" /> -->
+        <img src="/assets/images/home/user.jpg" alt="default user iamge" />
+        }@else {
+        <img src="/assets/images/home/user.jpg" alt="default user iamge" />
+        }
+      </div>
+    </blockquote>
+
+    <ul class="notifylist">
+      <li>
+        <i class="bi bi-heart-fill"></i>
+        <span>s </span>
+      </li>
+
+      <li>
+        <i class="bi bi-bell"></i>
+        <span> s</span>
+      </li>
+
+      <li>
+        <i class="bi bi-chat-dots"></i>
+        <span>s </span>
+      </li>
+    </ul>
+
+    <blockquote class="controls">
+      <div class="links">
+        <ul>
+          <li routerLink="/departments">
+            <span class="arrow">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+            {{ "header.departments" | translate }}
+          </li>
+
+          <li routerLink="/home">
+            {{ "home" | translate }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- routerLink="log-in" -->
+      <button class="btn btn-mainRed makeOffer">
+        {{ "make an offer" | translate }}
+        <i class="bi bi-plus"></i>
+      </button>
+
+      <!-- <button class="btn btn-mainRed">
+        {{ "header.logout" | translate }}
+      </button> -->
+    </blockquote>
+
+    <blockquote class="menu" (click)="showSideBar = true">
+      <i class="bi bi-list"></i>
+    </blockquote>
+  </div>
+</header>
+
+<!-- __________________________Mobile________________________________ -->
+<!-- ________________________________________________________________ -->
+<p-sidebar [(visible)]="showSideBar">
+  <ng-template pTemplate="header">
+    <div class="logo" routerLink="/home">
+      @if(lang==="ar"){
+      <img src="/assets/images/logo/logo-ar.png" alt="logo" />
+      }@else if (lang==='en') {
+      <img src="/assets/images/logo/logo-en.png" alt="logo" />
+      }
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <ul>
+      <li routerLink="/home">
+        {{ "home" | translate }}
+      </li>
+
+      <li routerLink="/departments">
+        {{ "header.departments" | translate }}
+      </li>
+
+      <li routerLink="/support">
+        {{ "header.help" | translate }}
+      </li>
+
+      <li>
+        <button class="btn btn-mainRed">
+          {{ "header.logout" | translate }}
+        </button>
+      </li>
+    </ul>
+  </ng-template>
+</p-sidebar>

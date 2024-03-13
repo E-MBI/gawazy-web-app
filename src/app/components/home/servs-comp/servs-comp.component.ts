@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardComponent } from '../../shared/card/card.component';
 import { RouterLink } from '@angular/router';
+import { GlobalService } from '../../../shared/services/global.service';
 interface PageEvent {
   first: number;
   rows: number;
@@ -184,9 +185,12 @@ export class ServsCompComponent implements OnInit {
   rows: number = 4;
   page: number = 1;
   pageCount: number = 0;
+  lang!: string;
   // ___________________________________________________________
 
-  constructor() {}
+  constructor(private glSer: GlobalService) {
+    this.glSer.$langObs.subscribe((val) => (this.lang = val));
+  }
 
   ngOnInit(): void {
     this.showServices = this.serivces.slice(0, 4);

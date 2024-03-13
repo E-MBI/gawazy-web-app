@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginatorModule } from 'primeng/paginator';
 import { CardComponent } from '../../shared/card/card.component';
+import { GlobalService } from '../../../shared/services/global.service';
+import { RouterLink, RouterModule } from '@angular/router';
 
 interface PageEvent {
   first: number;
@@ -14,7 +16,14 @@ interface PageEvent {
 @Component({
   selector: 'app-serv-most-view',
   standalone: true,
-  imports: [CommonModule, TranslateModule, PaginatorModule, CardComponent],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    PaginatorModule,
+    CardComponent,
+    RouterLink,
+    RouterModule,
+  ],
   templateUrl: './serv-most-view.component.html',
   styleUrl: './serv-most-view.component.scss',
 })
@@ -179,9 +188,11 @@ export class ServMostViewComponent {
   rows: number = 4;
   page: number = 1;
   pageCount: number = 0;
+  lang!: string;
   // ___________________________________________________________
-
-  constructor() {}
+  constructor(private glSer: GlobalService) {
+    this.glSer.$langObs.subscribe((val) => (this.lang = val));
+  }
 
   ngOnInit(): void {
     this.showServices = this.services.slice(0, 4);

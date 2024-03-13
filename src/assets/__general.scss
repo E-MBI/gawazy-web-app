@@ -16,6 +16,22 @@
   }
 }
 
+.btn-mainGreen {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  background-color: var(--main-gr);
+  color: var(--white);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: #59838d;
+  }
+}
+
 .btn-selectRed {
   padding: 0.6rem;
   text-align: center;
@@ -48,6 +64,54 @@
   &:hover {
     background-color: var(--main-re);
     color: var(--white);
+  }
+}
+
+.btn-like {
+  padding: 0rem;
+  text-align: center;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  i {
+    font-size: 1.5rem;
+    background-color: var(--main-ya);
+    color: var(--main-gr);
+    display: flex;
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-weight: bold;
+    box-shadow: 0 0 2px 0px #c8c8c8;
+  }
+
+  span {
+    color: var(--main-gr);
+  }
+}
+
+.btn-dis-like {
+  padding: 0rem;
+  text-align: center;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  i {
+    font-size: 1.5rem;
+    background-color: var(--main-ya);
+    color: var(--main-re);
+    display: flex;
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-weight: bold;
+    box-shadow: 0 0 2px 0px #c8c8c8;
+  }
+
+  span {
+    color: var(--main-gr);
   }
 }
 
@@ -179,6 +243,29 @@
           height: 3vh;
         }
       }
+    }
+  }
+}
+
+// __________________toast_____________________
+// ____________________________________________
+
+:host ::ng-deep {
+  .p-toast-message-custom {
+    background-color: var(--main-gr);
+    border: solid var(--main-gr);
+    border-width: 0 0 0 6px;
+    color: var(--white);
+    .p-toast-icon-close {
+      color: var(--white);
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  .p-toast-icon-close {
+    &:hover {
+      background-color: transparent;
     }
   }
 }

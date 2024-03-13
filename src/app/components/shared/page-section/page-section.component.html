@@ -1,6 +1,32 @@
 <div class="services">
-  <blockquote class="secHead">
+  <blockquote
+    class="secHead"
+    [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+  >
+    <div class="title">
+      @if (providerNameAr||providerName) {
+      <!--  -->
+      @if (lang=='ar') {
+      <span>( {{ providerNameAr }} )</span>
+      }@else if (lang=='en') {
+      <span>( {{ providerName }} )</span>
+      }
+      <!--  -->
+      }
+
+      <h3 class="btn btn-outline-mainRed fw-bold">
+        {{ head | translate }}
+      </h3>
+    </div>
+
     <div class="paginator">
+      <p class="pages">
+        <span> {{ "page" | translate }}</span>
+        <span> {{ page }} </span>
+        <span> {{ "of" | translate }}</span>
+        <span> {{ pageCount }}</span>
+      </p>
+
       <p-paginator
         [first]="first"
         [rows]="rows"
@@ -10,24 +36,13 @@
         [showPageLinks]="false"
         [showFirstLastIcon]="false"
       ></p-paginator>
-
-      <p class="pages">
-        <span> {{ "page" | translate }}</span>
-        <span> {{ page }} </span>
-        <span> {{ "of" | translate }}</span>
-        <span> {{ pageCount }}</span>
-      </p>
     </div>
-
-    <h3 class="btn btn-outline-mainRed fw-bold">
-      {{ title | translate }}
-    </h3>
   </blockquote>
 
   <ul class="servCont">
     @for (item of showServices; track item.id) {
     <li>
-      <div class="item" [routerLink]="['/services', item.id]">
+      <div class="item" routerLink="/{{ title }}/{{ item.id }}">
         <app-card [item]="item"></app-card>
       </div>
     </li>

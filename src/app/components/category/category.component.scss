@@ -1,0 +1,96 @@
+@import "../../../assets/_general";
+
+header {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 230px;
+  position: relative;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .title {
+    width: 25%;
+    height: 100%;
+    background-color: var(--main-re);
+    position: absolute;
+    top: 0%;
+    @include flex(column, center, center, 0rem);
+    h3 {
+      color: var(--white);
+      font-weight: 600;
+    }
+  }
+
+  .title.ar-lang {
+    right: 0%;
+    border-top-left-radius: 10rem;
+    border-bottom-left-radius: 10rem;
+  }
+
+  .title.en-lang {
+    left: 0%;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+  }
+}
+
+.category {
+  nav {
+    margin-bottom: 1rem;
+    .catItems {
+      @include flex(row, flex-start, flex-start, 0.5rem);
+      flex-wrap: wrap;
+    }
+
+    .item {
+    }
+  }
+
+  .occasionFashion {
+    margin-top: 2rem;
+  }
+
+  .occasionFashionOffers {
+    margin-top: 2rem;
+  }
+
+  .mostViewedServices {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  header {
+    .title {
+      width: 50%;
+    }
+  }
+
+  .category {
+    nav {
+      .catItems {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 451px) and (max-width: 767px) {
+  header {
+    .title {
+      width: 50%;
+    }
+  }
+
+  .category {
+    nav {
+      .catItems {
+        justify-content: center;
+      }
+    }
+  }
+}

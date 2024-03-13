@@ -1,0 +1,23 @@
+@import "../../../../assets/_general";
+
+.signUp {
+  background-color: var(--main-ya);
+  min-height: 100vh;
+  width: 100vw;
+  @include flex(column, center, center, 1rem);
+  .controls {
+    @include flex(row, center, center, 0.5rem);
+    button {
+      padding: 0.5rem 3rem;
+    }
+  }
+
+  .link {
+    // width: 50%;
+    text-align: right;
+    color: var(--main-re);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+}

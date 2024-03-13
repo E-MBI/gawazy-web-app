@@ -1,0 +1,54 @@
+<section class="userSide">
+  <header>
+    @if (false) {
+    <img src="image.url" alt="User image" />
+    }@else {
+    <img src="/assets/images/home/user.jpg" alt="default user image" />
+    }
+
+    <!-- name -->
+
+    <h3 class="usName">{{ "user  Name" }}</h3>
+
+    <!-- action -->
+    <label for="change_image">
+      <button class="btn changeImage">
+        <span>{{ "edit" | translate }}</span>
+        <i class="bi bi-pencil-square"></i>
+      </button>
+
+      <input type="file" name="change_image" hidden id="change_image" />
+    </label>
+  </header>
+  <ul class="tabs" [ngClass]="{ 'dir-ar': lang == 'ar' }">
+    <li routerLink="user/favorite" routerLinkActive="active-tab">
+      <i class="bi bi-heart-fill"></i>
+      <span>{{ "my favorite" | translate }}</span>
+    </li>
+
+    <li routerLink="user/notification" routerLinkActive="active-tab">
+      <i class="bi bi-bell"></i>
+      <span>{{ "my notification" | translate }}</span>
+    </li>
+
+    <li routerLink="user/settings" routerLinkActive="active-tab">
+      <i class="bi bi-gear"></i>
+      <span>{{ "my settings" | translate }}</span>
+    </li>
+
+    <li routerLink="user/chat" routerLinkActive="active-tab">
+      <i class="bi bi-chat-dots"></i>
+      <span>{{ "my messages" | translate }}</span>
+    </li>
+
+    <li routerLink="user/support" routerLinkActive="active-tab">
+      <i class="bi bi-person-gear"></i>
+      <span>{{ "technical support" | translate }}</span>
+    </li>
+
+    <li class="logout">
+      <i class="bi bi-box-arrow-right"></i>
+      <span>{{ "log out" | translate }}</span>
+    </li>
+  </ul>
+</section>

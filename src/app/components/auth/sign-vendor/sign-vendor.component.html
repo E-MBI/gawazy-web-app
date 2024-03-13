@@ -1,0 +1,185 @@
+<section class="signVendors">
+  <h2>{{ "service provider" | translate }}</h2>
+
+  <form
+    [formGroup]="registerForm"
+    [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+  >
+    <label for="first_name">
+      <span>{{ "first name" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="first_name"
+        formControlName="first_name"
+        id="first_name"
+      />
+    </label>
+
+    <!--* last name -->
+    <label for="last_name">
+      <span>{{ "last name" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="last_name"
+        formControlName="last_name"
+        id="last_name"
+      />
+    </label>
+
+    <!--* vendor_name -->
+    <label for="vendor name">
+      <span>{{ "vendor name" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="vendor_name"
+        formControlName="vendor_name"
+        id="vendor_name"
+      />
+    </label>
+
+    <!--* service type -->
+    <label for="service type">
+      <span>{{ "service type" | translate }}</span>
+      <!-- <input
+        type="text"
+        class="form-control input-text"
+        name="vendor_name"
+        formControlName="vendor_name"
+        id="vendor_name"
+        placeholder=""
+      /> -->
+      @if (lang=='ar') {
+
+      <p-dropdown
+        class="input-text"
+        formControlName="category_id"
+        [options]="allCategories"
+        optionLabel="ar_name"
+        placeholder="لن يتم تغيير نوع الخدمة بعد التسجيل"
+      ></p-dropdown>
+
+      }@else if (lang=='en'){
+
+      <p-dropdown
+        class="input-text"
+        formControlName="category_id"
+        [options]="allCategories"
+        optionLabel="name"
+        placeholder="The service type not changed after register"
+      ></p-dropdown>
+
+      }
+    </label>
+
+    <!--* phone number -->
+    <label for="phone_number">
+      <span>{{ "phone_number" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="phone_number"
+        formControlName="phone_number"
+        id="phone_number"
+      />
+    </label>
+
+    <!-- * E-mail -->
+    <label for="email">
+      <span>{{ "email" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="email"
+        formControlName="email"
+        id="email"
+      />
+    </label>
+
+    <!--  * password -->
+    <label for="password">
+      <span>{{ "password" | translate }}</span>
+      <input
+        [ngClass]="{
+          'is-valid': password?.valid && password?.touched,
+          'is-invalid': password?.invalid && password?.touched
+        }"
+        formControlName="password"
+        [type]="showPassSt['pass'] ? 'text' : 'password'"
+        class="form-control input-text"
+        name="password"
+        id="password"
+      />
+
+      @if(showPassSt['pass']){
+      <i
+        class="bi bi-eye"
+        [ngClass]="{ 'i-en': lang == 'en', 'i-ar': lang == 'ar' }"
+        (click)="showPass('pass', false)"
+      ></i>
+      }@else {
+      <i
+        class="bi bi-eye-slash"
+        [ngClass]="{ 'i-en': lang == 'en', 'i-ar': lang == 'ar' }"
+        (click)="showPass('pass', true)"
+      ></i>
+      }
+    </label>
+
+    <!--  * password_confirmation -->
+    <label for="password_confirmation">
+      <span>{{ "confirmation password" | translate }}</span>
+      <input
+        [ngClass]="{
+          'is-valid':
+            password_confirmation?.valid && password_confirmation?.touched,
+          'is-invalid':
+            password_confirmation?.invalid && password_confirmation?.touched
+        }"
+        formControlName="password_confirmation"
+        [type]="showPassSt['confirmPass'] ? 'text' : 'password'"
+        class="form-control input-text"
+        name="password_confirmation"
+        id="password_confirmation"
+      />
+
+      @if(showPassSt['confirmPass']){
+      <i
+        class="bi bi-eye"
+        [ngClass]="{ 'i-en': lang == 'en', 'i-ar': lang == 'ar' }"
+        (click)="showPass('confirmPass', false)"
+      ></i>
+      }@else {
+      <i
+        class="bi bi-eye-slash"
+        [ngClass]="{ 'i-en': lang == 'en', 'i-ar': lang == 'ar' }"
+        (click)="showPass('confirmPass', true)"
+      ></i>
+      }
+    </label>
+  </form>
+
+  <!-- * ___________controls___________ -->
+  <div class="controls">
+    <div class="userTrems">
+      {{ "user_terms_1" | translate }} <br />
+      <p>{{ "user_terms_2" | translate }}</p>
+    </div>
+
+    <label for="remmberMe">
+      <span> {{ "agree_terms" | translate }} </span>
+      <input type="checkbox" name="remmberMe" id="remmberMe" />
+    </label>
+
+    <button type="submit" class="btn btn-mainRed" (click)="register()">
+      {{ "register" | translate }}
+    </button>
+
+    <a class="link" (click)="goBack()">{{ "previous" | translate }}</a>
+  </div>
+</section>
+
+<!-- toast message -->
+<p-toast></p-toast>

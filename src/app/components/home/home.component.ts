@@ -18,6 +18,7 @@ import { ServsCompComponent } from './servs-comp/servs-comp.component';
 import { OfferCompComponent } from './offer-comp/offer-comp.component';
 import { ServMostViewComponent } from './serv-most-view/serv-most-view.component';
 import { OfferMostViewComponent } from './offer-most-view/offer-most-view.component';
+import { CatSliderComponent } from './cat-slider/cat-slider.component';
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -46,6 +47,7 @@ interface PageEvent {
     OfferCompComponent,
     ServMostViewComponent,
     OfferMostViewComponent,
+    CatSliderComponent,
   ],
 })
 export class HomeComponent implements AfterViewChecked, OnInit {

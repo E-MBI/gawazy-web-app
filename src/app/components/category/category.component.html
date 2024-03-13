@@ -1,0 +1,68 @@
+@defer(on timer(1000ms)){
+<header>
+  @if(true){
+  <img src="/assets/images/category/1.jpg" alt="service image" />
+  }@else{
+  <img src="/assets/images/home/placeholder.jpg" alt="service image" />
+  }
+
+  <blockquote
+    class="title"
+    [ngClass]="{ 'ar-lang': lang == 'ar', 'en-lang': lang == 'en' }"
+  >
+    @if(lang=='ar'){
+    <h3>أزياء المناسبات</h3>
+    }@else if(lang=='en'){
+    <h3>Occasion Fashion</h3>
+    }
+  </blockquote>
+</header>
+
+<section class="container category">
+  <!-- __________ Nav bar _________  -->
+  <nav>
+    <ul
+      class="catItems"
+      [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+    >
+      @if(lang=='ar'){ @for ( item of [1,2,3];track $index){
+
+      <li class="item">
+        <button class="btn btn-mainRed">محل ملابس مناسبات</button>
+      </li>
+
+      } }@else if(lang=='en'){ @for ( item of [1,2,3];track $index){
+
+      <li>
+        <button class="btn btn-mainRed">Occasion Closeth Store</button>
+      </li>
+
+      } }
+    </ul>
+  </nav>
+
+  <!-- __________ Occasion Fashion _________  -->
+  <div class="occasionFashion">
+    <app-page-section title="offers" head="occasion fashion"></app-page-section>
+  </div>
+
+  <!-- __________ Occasion Fashion Offers _________  -->
+  <div class="occasionFashionOffers">
+    <app-page-section
+      title="offers"
+      head="occasion fashion offers"
+    ></app-page-section>
+  </div>
+
+  <!-- __________ Most Viewed Services _________  -->
+  <div class="mostViewedServices">
+    <app-page-section
+      title="offers"
+      head="most viewed services"
+    ></app-page-section>
+  </div>
+</section>
+
+}@placeholder{
+<app-loading></app-loading>
+}

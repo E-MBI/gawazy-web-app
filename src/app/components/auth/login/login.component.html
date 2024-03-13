@@ -1,0 +1,67 @@
+<section class="login">
+  <form
+    [formGroup]="loginForm"
+    [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+  >
+    <label for="user_name">
+      <span>{{ "user name" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="user_name"
+        formControlName="user_name"
+        id="user_name"
+      />
+    </label>
+
+    <label for="password">
+      <span>{{ "password" | translate }}</span>
+      <input
+        type="{{ showPass ? 'text' : 'password' }}"
+        class="form-control input-text"
+        formControlName="password"
+        name="password"
+        id="password"
+      />
+
+      @if (showPass) {
+      <i
+        class="bi bi-eye"
+        [ngClass]="{ 'ar-lang': lang == 'ar', 'en-lang': lang == 'en' }"
+        (click)="showPassSt()"
+      >
+      </i>
+      }@else {
+      <i
+        class="bi bi-eye-slash"
+        [ngClass]="{ 'ar-lang': lang == 'ar', 'en-lang': lang == 'en' }"
+        (click)="showPassSt()"
+      >
+      </i>
+      }
+    </label>
+
+    <a class="link forgotPass">{{ "forgot pass" | translate }}</a>
+
+    <div class="controls">
+      <button type="submit" class="btn btn-mainRed" (click)="login()">
+        {{ "header.login" | translate }}
+      </button>
+
+      <label for="remmberMe">
+        <input
+          type="checkbox"
+          name="remmberMe"
+          formControlName="remmber_me"
+          id="remmberMe"
+        />
+        <span> {{ "remmber me" | translate }}</span>
+      </label>
+    </div>
+
+    <a class="link signUp" routerLink="/sign-up">{{ "sign up" | translate }}</a>
+  </form>
+</section>
+
+<!-- toast message  -->
+<p-toast></p-toast>

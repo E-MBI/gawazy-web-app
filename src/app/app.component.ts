@@ -31,6 +31,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
 export class AppComponent {
   lang: string | null = '';
   loginPage!: boolean;
+  dashPage!: boolean;
   // _____________________________________
   constructor(
     private translate: TranslateService,
@@ -47,6 +48,7 @@ export class AppComponent {
     }
 
     this.islogPage();
+    this.isDashPage();
   }
 
   // _____________________________________
@@ -67,6 +69,20 @@ export class AppComponent {
         } else {
           this.loginPage = false;
           this.globalSer.loggedSt(false);
+        }
+      }
+    });
+  }
+
+  isDashPage() {
+    this.globalSer.$dashPage.subscribe((val) => (this.dashPage = val));
+    // when route changed
+    this.route.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        if (this.route.url.includes('/dashboard')) {
+          this.globalSer.dashloggedSt(true);
+        } else {
+          this.globalSer.dashloggedSt(false);
         }
       }
     });

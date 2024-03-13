@@ -1,6 +1,20 @@
 <div class="offers">
-  <blockquote class="secHead">
+  <blockquote
+    class="secHead"
+    [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+  >
+    <h3 class="btn btn-outline-mainRed fw-bold">
+      {{ "offers" | translate }}
+    </h3>
+
     <div class="paginator">
+      <p class="pages">
+        <span> {{ "page" | translate }}</span>
+        <span> {{ page }} </span>
+        <span> {{ "of" | translate }}</span>
+        <span> {{ pageCount }}</span>
+      </p>
+
       <p-paginator
         [first]="first"
         [rows]="rows"
@@ -10,25 +24,14 @@
         [showPageLinks]="false"
         [showFirstLastIcon]="false"
       ></p-paginator>
-
-      <p class="pages">
-        <span> {{ "page" | translate }}</span>
-        <span> {{ page }} </span>
-        <span> {{ "of" | translate }}</span>
-        <span> {{ pageCount }}</span>
-      </p>
     </div>
-
-    <h3 class="btn btn-outline-mainRed fw-bold">
-      {{ "offers" | translate }}
-    </h3>
   </blockquote>
 
   <ul class="servCont">
     @for (item of showOffers; track item.id) {
     <li>
       <div class="item" [routerLink]="['/offers', item.id]">
-        <app-card [item]="item"></app-card>
+        <app-card [item]="item" routeUrl="/offers/{{ item.id }}"></app-card>
       </div>
     </li>
     }@empty {

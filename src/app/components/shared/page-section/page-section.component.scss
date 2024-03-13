@@ -15,11 +15,25 @@
         }
       }
     }
+
+    .title {
+      @include flex(row, flex-start, center, 0.5rem);
+      span {
+        color: #707070;
+        font-size: 1.5rem;
+      }
+    }
   }
 
   .servCont {
     margin-top: 1rem;
     padding-top: 1rem;
     @include gridReapte(300px, center, center, 0.5rem);
+    .notFound {
+      padding: 1rem;
+      color: var(--main-re);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
   }
 }

@@ -1,18 +1,525 @@
 @defer (on timer(1000ms)) {
 <section class="offer container">
-  <div class="info"></div>
+  <div class="info">
+    <blockquote class="header">
+      <div class="gallary">
+        <blockquote class="mainImage">
+          @if (true) {
+          <img src="/assets/images/offerDetails/turpoc.jpg" alt="main image" />
+          }@else {
+          <img
+            src="/assets/images/home/placeholder.jpg"
+            class="card-img-top"
+            alt="default image"
+          />
+          }
+
+          <i class="bi bi-heart-fill"></i>
+        </blockquote>
+
+        <ul class="otherImge">
+          <li>
+            @if (false) {
+            <img
+              src="/assets/images/offerDetails/turpoc.jpg"
+              alt="main image"
+            />
+            }@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/offerDetails/turpoc.jpg"
+              alt="main image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/offerDetails/turpoc.jpg"
+              alt="main image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img src="/assets/images/offerDetails/12.jpg" alt="main image" />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/offerDetails/turpoc.jpg"
+              alt="main image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+          <li>
+            @if (false) {}@else {
+            <img
+              src="/assets/images/home/placeholder.jpg"
+              class="card-img-top"
+              alt="default image"
+            />
+            }
+          </li>
+        </ul>
+      </div>
+
+      <div class="providerInfo">
+        <blockquote class="title">
+          @if (false) {
+          <img src="" alt="" />
+          }@else {
+          <img src="/assets/images/home/user.jpg" alt="" />
+          }
+
+          <h3 class="name">Mahmoud Ibrahim</h3>
+        </blockquote>
+
+        <!-- share links -->
+        <blockquote class="share">
+          <i class="bi bi-share"></i>
+          <i class="bi bi-hand-thumbs-up"></i>
+        </blockquote>
+
+        <button class="btn btn-mainRed favBtn">
+          {{ "add to" | translate }} {{ "favorite" | translate }}
+        </button>
+
+        <ul class="controls">
+          <li class="btn-mainGreen">
+            <i class="bi bi-envelope"></i>
+          </li>
+
+          <li class="btn-mainGreen">
+            <i class="bi bi-chat-dots"></i>
+          </li>
+
+          <li class="btn-mainGreen">
+            <i class="bi bi-whatsapp"></i>
+          </li>
+
+          <li class="btn-mainGreen">
+            <i class="bi bi-phone"></i>
+          </li>
+        </ul>
+      </div>
+    </blockquote>
+
+    <article class="text">
+      <blockquote class="rating-price">
+        <h2 class="price">
+          500.00 LE <small class="oldPrice">800.00 LE</small>
+        </h2>
+
+        <ul class="rating">
+          <li class="item">
+            <span>1 Star</span>
+            <blockquote>
+              <span class="actualprogress" [style.width.%]="5"></span>
+              <span class="userCount">10</span>
+            </blockquote>
+            <strong>{{ 5 + "%" }}</strong>
+          </li>
+
+          <!-- star 2 -->
+          <li class="item">
+            <strong>2 Star</strong>
+            <blockquote>
+              <span class="actualprogress" [style.width.%]="12"></span>
+              <span class="userCount">20</span>
+            </blockquote>
+            <strong>{{ 12 + "%" }}</strong>
+          </li>
+
+          <!-- star 3-->
+          <li class="item">
+            <strong>3 Star</strong>
+            <blockquote>
+              <span class="actualprogress" [style.width.%]="40"></span>
+              <span class="userCount">110</span>
+            </blockquote>
+            <strong>{{ 40 + "%" }}</strong>
+          </li>
+
+          <!-- star 4-->
+          <li class="item">
+            <strong>4 Star</strong>
+            <blockquote>
+              <span class="actualprogress" [style.width.%]="30"></span>
+              <span class="userCount">85</span>
+            </blockquote>
+            <strong>{{ 30 + "%" }}</strong>
+          </li>
+
+          <!-- star 5 -->
+          <li class="item">
+            <strong>5 Star</strong>
+            <blockquote>
+              <span class="actualprogress" [style.width.%]="80"></span>
+              <span class="userCount">200</span>
+            </blockquote>
+            <strong>{{ 80 + "%" }}</strong>
+          </li>
+        </ul>
+      </blockquote>
+
+      <blockquote class="about-provider">
+        <h5>مدينة + ناريخ انشاء العرض وموعد انتهائه</h5>
+        <p>
+          لماذا تختار معجون أسنان أكوافريش "الأسنان الصغيرة"؟قام خبراء طب
+          الأسنان بتصميم معجون أسنان أكوافريش "الأسنان الصغيرة" خصيصاً للأطفال
+        </p>
+        <button class="btn btn-mainRed">
+          {{ "more details" | translate }}
+        </button>
+      </blockquote>
+    </article>
+  </div>
 
   <!-- __________ comments _________  -->
-  <div class="comments"></div>
+  <div class="comments">
+    <blockquote class="reviews">
+      <header [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }">
+        <button class="btn btn-outline-mainRed">
+          {{ "comments" | translate }}
+        </button>
+      </header>
+
+      <ul
+        class="allcomments"
+        [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+      >
+        <li>
+          <div class="userCont">
+            <!-- if user have image or not make default image -->
+            <blockquote class="userImage">
+              <img src="/assets/images/home/user.jpg" alt="userdata" />
+            </blockquote>
+
+            <div class="userInfo">
+              <blockquote class="text">
+                <h3>Mahmoud ibrahim</h3>
+                <small>{{ "comment" | translate }}</small>
+                <ul class="stars">
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                </ul>
+              </blockquote>
+
+              <blockquote class="control">
+                <button class="btn btn-like">
+                  <i class="bi bi-hand-thumbs-up"></i>
+                  <span>{{ "recommend it" | translate }}</span>
+                </button>
+
+                <button class="btn btn-dis-like">
+                  <i class="bi bi-hand-thumbs-down"></i>
+                  <span>{{ "don't recommend it" | translate }}</span>
+                </button>
+              </blockquote>
+            </div>
+          </div>
+
+          <p class="userComment">
+            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
+            القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في
+            الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي
+            توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام
+          </p>
+        </li>
+        <li>
+          <div class="userCont">
+            <!-- if user have image or not make default image -->
+            <blockquote class="userImage">
+              <img src="/assets/images/home/user.jpg" alt="userdata" />
+            </blockquote>
+
+            <div class="userInfo">
+              <blockquote class="text">
+                <h3>Mahmoud ibrahim</h3>
+                <small>{{ "comment" | translate }}</small>
+                <ul class="stars">
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                </ul>
+              </blockquote>
+
+              <blockquote class="control">
+                <button class="btn btn-like">
+                  <i class="bi bi-hand-thumbs-up"></i>
+                  <span>{{ "recommend it" | translate }}</span>
+                </button>
+
+                <button class="btn btn-dis-like">
+                  <i class="bi bi-hand-thumbs-down"></i>
+                  <span>{{ "don't recommend it" | translate }}</span>
+                </button>
+              </blockquote>
+            </div>
+          </div>
+
+          <p class="userComment">
+            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
+            القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في
+            الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي
+            توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام
+          </p>
+        </li>
+        <li>
+          <div class="userCont">
+            <!-- if user have image or not make default image -->
+            <blockquote class="userImage">
+              <img src="/assets/images/home/user.jpg" alt="userdata" />
+            </blockquote>
+
+            <div class="userInfo">
+              <blockquote class="text">
+                <h3>Mahmoud ibrahim</h3>
+                <small>{{ "comment" | translate }}</small>
+                <ul class="stars">
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                </ul>
+              </blockquote>
+
+              <blockquote class="control">
+                <button class="btn btn-like">
+                  <i class="bi bi-hand-thumbs-up"></i>
+                  <span>{{ "recommend it" | translate }}</span>
+                </button>
+
+                <button class="btn btn-dis-like">
+                  <i class="bi bi-hand-thumbs-down"></i>
+                  <span>{{ "don't recommend it" | translate }}</span>
+                </button>
+              </blockquote>
+            </div>
+          </div>
+
+          <p class="userComment">
+            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
+            القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في
+            الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي
+            توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام
+          </p>
+        </li>
+        <li>
+          <div class="userCont">
+            <!-- if user have image or not make default image -->
+            <blockquote class="userImage">
+              <img src="/assets/images/home/user.jpg" alt="userdata" />
+            </blockquote>
+
+            <div class="userInfo">
+              <blockquote class="text">
+                <h3>Mahmoud ibrahim</h3>
+                <small>{{ "comment" | translate }}</small>
+                <ul class="stars">
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                  <li>
+                    <i class="bi bi-star"></i>
+                  </li>
+                </ul>
+              </blockquote>
+
+              <blockquote class="control">
+                <button class="btn btn-like">
+                  <i class="bi bi-hand-thumbs-up"></i>
+                  <span>{{ "recommend it" | translate }}</span>
+                </button>
+
+                <button class="btn btn-dis-like">
+                  <i class="bi bi-hand-thumbs-down"></i>
+                  <span>{{ "don't recommend it" | translate }}</span>
+                </button>
+              </blockquote>
+            </div>
+          </div>
+
+          <p class="userComment">
+            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
+            القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في
+            الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي
+            توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام
+          </p>
+        </li>
+      </ul>
+
+      <footer [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }">
+        <!-- if user login -->
+        <div class="userData">
+          <!-- if user have image or not make default image -->
+          <blockquote class="img">
+            <img src="/assets/images/home/user.jpg" alt="userdata" />
+          </blockquote>
+
+          <blockquote class="text">
+            <h3>Mahmoud ibrahim</h3>
+            <small>{{ "comment" | translate }}</small>
+          </blockquote>
+        </div>
+
+        <!-- wirte comment -->
+        @if (lang=='ar') {
+        <label for="message">
+          <input
+            class="input-text"
+            type="text"
+            placeholder="اكتب تعليقك"
+            name="message"
+            id="message"
+          />
+        </label>
+
+        }@else if (lang=='en') {
+        <label for="message">
+          <input
+            class="input-text"
+            type="text"
+            placeholder="Write Your Comment"
+            name="message"
+            id="message"
+          />
+        </label>
+        }
+
+        <!-- submit comment -->
+        <button class="btn btn-mainRed">
+          {{ "post" | translate }} {{ "comment" | translate }}
+        </button>
+      </footer>
+    </blockquote>
+
+    <blockquote class="ads"></blockquote>
+  </div>
 
   <!-- __________ service provider offers _________  -->
   <div class="serviceProviderOffers">
-    <app-page-section title="services"></app-page-section>
+    <app-page-section
+      title="services"
+      head="services provider offers"
+    ></app-page-section>
   </div>
 
   <!-- __________ Most viewed photography shows _________  -->
-  <div class="serviceProviderOffers">
-    <app-page-section title="offers"></app-page-section>
+  <div class="mostViewedOffers">
+    <app-page-section
+      title="offers"
+      head="most viewed photography offers"
+    ></app-page-section>
   </div>
 </section>
 

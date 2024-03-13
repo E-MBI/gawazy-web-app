@@ -9,6 +9,7 @@ footer {
     background-color: var(--main-re);
     .container {
       @include flex(row, space-between, center, 0.2rem);
+      flex-wrap: wrap-reverse;
       .social {
         @include flex(row, flex-start, center, 0.5rem);
         span {
@@ -60,6 +61,28 @@ footer {
         font-weight: 600;
         padding: 0.5rem 0rem;
         display: inline-block;
+      }
+    }
+  }
+}
+
+// _______________________media query_______
+// _______________________media query_______
+
+@media (max-width: 450px) {
+  footer {
+    .cont {
+      .container {
+        .mainCont {
+          width: 100%;
+          justify-content: center;
+          .links {
+            width: 50%;
+            li {
+              width: 70%;
+            }
+          }
+        }
       }
     }
   }
