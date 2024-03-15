@@ -173,7 +173,7 @@ export class SignVendorComponent implements OnInit {
         );
 
         setTimeout(() => {
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/log-vendor');
         }, 2000);
       },
 

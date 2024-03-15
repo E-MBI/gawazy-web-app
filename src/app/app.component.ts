@@ -1,11 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
 import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router,
-  RouterOutlet,
-} from '@angular/router';
+  AfterContentChecked,
+  ChangeDetectorRef,
+  Component,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -28,7 +27,7 @@ import { LoadingComponent } from './shared/loading/loading.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements AfterContentChecked {
   lang: string | null = '';
   loginPage!: boolean;
   dashPage!: boolean;
@@ -36,7 +35,8 @@ export class AppComponent {
   constructor(
     private translate: TranslateService,
     private globalSer: GlobalService,
-    private route: Router
+    private route: Router,
+    private cdRef: ChangeDetectorRef
   ) {
     if (typeof localStorage != 'undefined') {
       this.lang = localStorage.getItem('lang');
@@ -46,15 +46,21 @@ export class AppComponent {
       this.translate.use(this.lang);
       this.globalSer.changeLang(this.lang);
     }
+    // set defaulte value
+    this.globalSer.$loginPage.subscribe((val) => (this.loginPage = val));
+    this.globalSer.$dashPage.subscribe((val) => (this.dashPage = val));
+  }
 
+  // _____________________________________
+  ngAfterContentChecked() {
     this.islogPage();
     this.isDashPage();
+    this.cdRef.detectChanges();
   }
 
   // _____________________________________
 
   islogPage() {
-    this.globalSer.$loginPage.subscribe((val) => (this.loginPage = val));
     //when route changed
     this.route.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
@@ -62,12 +68,12 @@ export class AppComponent {
           this.route.url == '/log-in' ||
           this.route.url == '/sign-up' ||
           this.route.url == '/sign-vendor' ||
-          this.route.url == '/sign-user'
+          this.route.url == '/sign-user' ||
+          this.route.url == '/log-user' ||
+          this.route.url == '/log-vendor'
         ) {
-          this.loginPage = true;
           this.globalSer.loggedSt(true);
         } else {
-          this.loginPage = false;
           this.globalSer.loggedSt(false);
         }
       }
@@ -75,11 +81,13 @@ export class AppComponent {
   }
 
   isDashPage() {
-    this.globalSer.$dashPage.subscribe((val) => (this.dashPage = val));
     // when route changed
     this.route.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        if (this.route.url.includes('/dashboard')) {
+        if (
+          this.route.url.includes('/user-dash') ||
+          this.route.url.includes('/vendor-dash')
+        ) {
           this.globalSer.dashloggedSt(true);
         } else {
           this.globalSer.dashloggedSt(false);

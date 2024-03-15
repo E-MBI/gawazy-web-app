@@ -12,8 +12,9 @@ import { CalendarModule } from 'primeng/calendar';
 import { SendReqService } from '../../../shared/services/send-req.service';
 import { ToastModule } from 'primeng/toast';
 import { UserDataService } from '../../../shared/services/user-data.service';
-import { Router } from 'express';
+
 import { ToastMessageService } from '../../../shared/services/toast-message.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-user',
   standalone: true,
@@ -144,9 +145,25 @@ export class SignUserComponent {
     // ________________________________________
     this._sendReqSer.post(url, data).subscribe({
       next: (res) => {
-        console.log(res);
+        this.userData.upUserData(res.data);
+
+        this.toast.showToast(
+          'custom',
+          'Success',
+          'Register has been sucessfully',
+          'pi-thumbs-up'
+        );
+        setTimeout(() => {
+          this.router.navigateByUrl('/log-user');
+        }, 2000);
       },
       error: (err) => {
+        this.toast.showToast(
+          'error',
+          'Error',
+          err.error.error,
+          'pi-thumbs-down'
+        );
         console.log(err);
       },
     });

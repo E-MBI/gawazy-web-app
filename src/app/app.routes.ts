@@ -10,10 +10,14 @@ import { ServiceDetailsComponent } from './components/home/servs-comp/service-de
 import { OfferDetailsComponent } from './components/home/offer-comp/offer-details/offer-details.component';
 import { CategoryComponent } from './components/category/category.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { LogUserComponent } from './components/auth/log-user/log-user.component';
+import { LogVendorComponent } from './components/auth/log-vendor/log-vendor.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'log-in', component: LoginComponent },
+  { path: 'log-user', component: LogUserComponent },
+  { path: 'log-vendor', component: LogVendorComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-user', component: SignUserComponent },
   { path: 'sign-vendor', component: SignVendorComponent },
@@ -23,10 +27,18 @@ export const routes: Routes = [
   { path: 'offers/:offer_id', component: OfferDetailsComponent },
 
   {
-    path: 'dashboard',
+    path: 'user-dash',
     loadChildren: () =>
-      import('./components/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule
+      import('./components/user-dash/user-dash.module').then(
+        (m) => m.UserDashModule
+      ),
+  },
+
+  {
+    path: 'vendor-dash',
+    loadChildren: () =>
+      import('./components/vendor-dash/vendor-dash.module').then(
+        (m) => m.VendorDashModule
       ),
   },
 

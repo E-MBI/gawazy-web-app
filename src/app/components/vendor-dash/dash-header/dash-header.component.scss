@@ -1,0 +1,209 @@
+@import "../../../../assets/_general";
+header {
+  background-color: var(--main-ya);
+  padding: 1rem 0rem;
+  padding-top: 1.5rem;
+  // box-shadow: 0px 3px 6px #66949e5c;
+  // margin-bottom: 1rem;
+  .container {
+    @include flex(row, space-between, center, 0.5rem);
+
+    .box {
+      @include flex(row, flex-start, center, 0.5rem);
+      cursor: pointer;
+      .logo {
+        img {
+          width: 85px;
+        }
+      }
+
+      .lang {
+        min-width: fit-content;
+        position: relative;
+        button {
+          @include flex(row, space-between, center, 0.3rem);
+          .arrow {
+            color: var(--main-gr);
+            font-weight: 800;
+            font-size: 1rem;
+          }
+        }
+
+        .lang-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: fit-content;
+          background-color: var(--white);
+          box-shadow: 0 0 4px 0px var(--main-gr);
+          border-radius: 0.2rem;
+          padding: 0.6rem;
+          @include flex(column, flex-start, stretch, 0.5rem);
+          z-index: 50;
+          li {
+            @include flex(row, flex-start, center, 0.5rem);
+          }
+        }
+      }
+
+      .userInfo {
+        @include flex(row, flex-start, center, 0.3rem);
+        span {
+          color: var(--main-gr);
+          font-weight: 600;
+          font-size: 1rem;
+        }
+
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 0.5px solid var(--main-re);
+        }
+      }
+    }
+
+    .notifylist {
+      @include flex(row, center, center, 0.5rem);
+      li {
+        cursor: pointer;
+        background-color: var(--main-gr);
+        padding: 0.6rem;
+        border-radius: 50%;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        i {
+          display: flex;
+          color: var(--white);
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+        span {
+          display: flex;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          color: transparent;
+          background-color: var(--main-re);
+          position: absolute;
+          top: 0px;
+          left: 0px;
+        }
+
+        &:hover {
+          i {
+            color: var(--main-re);
+          }
+        }
+      }
+    }
+
+    .controls {
+      @include flex(row, flex-end, center, 1.4rem);
+      .links {
+        ul {
+          @include flex(row, center, center, 0.5rem);
+          li {
+            color: #707070;
+            font-weight: 600;
+            cursor: pointer;
+            // &:hover {
+            //   color: var(--white);
+            // }
+            .arrow {
+              i {
+                font-size: 0.6rem;
+              }
+            }
+          }
+          li.active {
+            color: var(--main-re);
+          }
+        }
+      }
+
+      .makeOffer {
+        position: relative;
+        padding: 0.5rem 2rem;
+        i {
+          position: absolute;
+          top: -1.3rem;
+          left: -1rem;
+          color: var(--white);
+          background-color: var(--main-gr);
+          font-weight: bold;
+          font-size: 1.2rem;
+          display: flex;
+          padding: 0.5rem;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .menu {
+      display: none;
+      border: thin solid #66939db8;
+      font-weight: 800;
+      border-radius: 0.2rem;
+      padding: 0rem 0.5rem;
+      i {
+        font-size: 1.5rem;
+        color: #66939d;
+      }
+      cursor: pointer;
+      &:hover {
+        background-color: #66939d;
+        i {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// ___________________Media Query_______________
+// _____________________________________________
+
+@media (max-width: 767px) {
+  header {
+    .container {
+      .box {
+        .userInfo {
+          display: none;
+        }
+      }
+
+      .notifylist,
+      .controls,
+      .links {
+        display: none;
+      }
+
+      .menu {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  header {
+    .container {
+      .box {
+        // .userInfo {
+        //   display: none;
+        // }
+      }
+
+      .controls,
+      .links {
+        display: none;
+      }
+      .menu {
+        display: block;
+      }
+    }
+  }
+}
+// ___________________Mobile____________________
+// _____________________________________________

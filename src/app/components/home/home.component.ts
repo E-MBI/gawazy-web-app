@@ -1,7 +1,6 @@
 import {
   AfterViewChecked,
   Component,
-  DoCheck,
   HostListener,
   OnInit,
 } from '@angular/core';
@@ -100,8 +99,7 @@ export class HomeComponent implements AfterViewChecked, OnInit {
     console.log(searchVal);
   }
 
-  @HostListener('window:resize', ['$event'])
-  getScreenWindow() {
+  @HostListener('window:resize', ['$event']) public getScreenWindow() {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 480) {
       this.slidePerViewCats = 4;

@@ -22,8 +22,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideAnimations(),
     provideClientHydration(),
+    provideAnimations(),
     provideHttpClient(withFetch()),
     importProvidersFrom(
       TranslateModule.forRoot({

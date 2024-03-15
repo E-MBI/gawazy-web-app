@@ -1,30 +1,16 @@
-<section class="signUp">
-  <div class="controls">
-    <button class="btn btn-mainRed" routerLink="/log-user">
-      {{ "service-user" | translate }}
-    </button>
-
-    <button class="btn btn-mainRed" routerLink="/log-vendor">
-      {{ "service-provider" | translate }}
-    </button>
-  </div>
-
-  <a class="link" (click)="goBack()">{{ "previous" | translate }}</a>
-</section>
-
-<!-- <section class="login">
+<section class="login">
   <form
     [formGroup]="loginForm"
     [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
   >
-    <label for="user_name">
-      <span>{{ "user name" | translate }}</span>
+    <label for="email">
+      <span>{{ "email" | translate }}</span>
       <input
         type="text"
         class="form-control input-text"
-        name="user_name"
-        formControlName="user_name"
-        id="user_name"
+        name="email"
+        formControlName="email"
+        id="email"
       />
     </label>
 
@@ -75,7 +61,7 @@
 
     <a class="link signUp" routerLink="/sign-up">{{ "sign up" | translate }}</a>
   </form>
-</section> -->
+</section>
 
 <!-- toast message  -->
 <p-toast></p-toast>

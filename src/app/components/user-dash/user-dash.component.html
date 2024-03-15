@@ -1,0 +1,19 @@
+<app-dash-header></app-dash-header>
+
+<section class="dash">
+  <div
+    class="dash-content"
+    [ngClass]="{ 'ms-auto': lang == 'en', 'me-auto': lang == 'ar' }"
+  >
+    <!-- @if (welPage) {
+    <blockquote class="welcomePage">welcomePage</blockquote>
+    } -->
+
+    <!-- ___________________  -->
+    <router-outlet></router-outlet>
+  </div>
+
+  <aside class="sidebar" [ngClass]="{ 'sidebar-ar': lang == 'ar' }">
+    <app-user-side></app-user-side>
+  </aside>
+</section>

@@ -1,0 +1,61 @@
+@import "../../../../assets/_general";
+
+.login {
+  background-color: var(--main-ya);
+  min-height: 100vh;
+  width: 100%;
+  form {
+    width: 100%;
+    min-height: 100vh;
+    @include flex(column, center, center, 0.8em);
+    label {
+      width: 50%;
+      position: relative;
+      span {
+        font-weight: 800;
+        color: #707070;
+      }
+
+      i {
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        backdrop-filter: blur(10px);
+        background-color: transparent;
+      }
+
+      i.ar-lang {
+        left: 5%;
+      }
+
+      i.en-lang {
+        right: 5%;
+      }
+    }
+
+    .forgotPass {
+      width: 50%;
+      text-align: right;
+      color: var(--main-re);
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .controls {
+      @include flex(row, center, center, 0.5rem);
+      span {
+        font-weight: 800;
+        color: #707070;
+      }
+    }
+
+    .signUp {
+      color: var(--main-re);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+  }
+}
