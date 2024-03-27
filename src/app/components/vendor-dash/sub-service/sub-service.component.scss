@@ -1,0 +1,151 @@
+@import "../../../../assets/_general";
+
+.sub-service {
+  header {
+    width: 98%;
+    @include flex(column, flex-start, center, 0.5rem);
+    padding: 2rem 0.5rem;
+    i {
+      font-size: 4rem;
+      color: var(--main-re);
+    }
+
+    p {
+      font-weight: 600;
+      color: #717171;
+    }
+
+    button {
+      @include flex(row, center, center, 0.3rem);
+      border: none;
+      outline: none;
+      i {
+        font-size: 1.2rem;
+        color: var(--main-re);
+      }
+
+      span {
+        font-size: 1.4rem;
+        color: var(--main-re);
+      }
+    }
+  }
+
+  .content {
+    width: 98%;
+    margin-top: 1rem;
+    .head {
+      // padding: 0.2rem 2rem;
+      @include flex(row, space-between, center, 0.5rem);
+      h2 {
+        padding-bottom: 0.3rem;
+        width: 9vw;
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: var(--border-co);
+        border-bottom: thin solid var(--border-co);
+        margin-bottom: 1rem;
+      }
+
+      label {
+        @include flex(row, center, center, 0.5rem);
+        span {
+          font-weight: 600;
+          color: #717171;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .table {
+      width: 94%;
+      margin-bottom: 1rem;
+      background-color: transparent;
+      text-align: center;
+      thead {
+        th {
+          text-align: center;
+          background-color: transparent;
+          border-color: var(--border-co);
+          color: #717171;
+          font-weight: bold;
+          .controls {
+            @include flex(row, space-evenly, center, 1rem);
+            i {
+              display: flex;
+              font-size: 1.8rem;
+              color: #717171;
+            }
+            i.bi-eye {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-color: var(--border-co);
+          th,
+          td {
+            background-color: transparent;
+          }
+
+          td {
+            .row-cont {
+              width: 95%;
+              @include flex(row, space-between, center, 0.4rem);
+              label {
+                @include flex(row, center, center, 0.4rem);
+                span {
+                  color: var(--main-re);
+                  font-weight: 600;
+                  font-size: 1.3rem;
+                }
+              }
+              // controls
+              .controls {
+                @include flex(row, space-between, center, 1.3rem);
+                i {
+                  display: flex;
+                  font-size: 1.1rem;
+                  color: var(--border-co);
+                  cursor: pointer;
+                }
+                i.bi-eye {
+                  font-size: 1.4rem;
+                }
+
+                .edit {
+                  @include flex(row, center, center, 0.5rem);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btnControl {
+    margin-top: 2rem;
+    width: 98%;
+    text-align: left;
+    .btn {
+      padding: 0.5rem 2rem;
+      position: relative;
+      i {
+        display: flex;
+        position: absolute;
+        top: -3%;
+        right: -15%;
+        font-size: 2.7rem;
+        font-weight: 600;
+        border: thin solid #ddd;
+        border-radius: 50%;
+        color: var(--main-btn);
+        background: var(--main-ya);
+      }
+    }
+  }
+}

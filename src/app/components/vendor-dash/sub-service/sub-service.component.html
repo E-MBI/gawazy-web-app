@@ -1,0 +1,93 @@
+<section
+  class="sub-service"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <header>
+    <i class="bi bi-camera-reels"></i>
+    <p>اسم الخدمة الرئيسية (مصور فوتو جرافر)</p>
+    <button class="btn btn-edit" [routerLink]="['../edit-service-file']">
+      <i class="bi bi-pencil-square"></i>
+      <span>{{ "edit" | translate }}</span>
+    </button>
+  </header>
+
+  <div class="content">
+    <blockquote
+      class="head"
+      [ngClass]="{ 'ps-3': lang == 'ar', 'pe-3': lang == 'en' }"
+    >
+      <h2>{{ "sub-service" | translate }}</h2>
+      <label for="selectAll">
+        <input
+          type="checkbox"
+          name="selectAll"
+          id="selectAll"
+          (change)="checkAllSt()"
+        />
+        <span>{{ "select all" | translate }}</span>
+      </label>
+    </blockquote>
+
+    <!-- table -->
+    <table
+      class="table"
+      [dir]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+    >
+      <thead>
+        <tr>
+          <th scope="col">{{ "service name" | translate }}</th>
+          <th scope="col">{{ "status" | translate }}</th>
+          <th scope="col">{{ "price" | translate }}</th>
+          <th scope="col">
+            <div class="controls">
+              <i class="bi bi-eye"></i>
+              <i
+                class="bi bi-hand-thumbs-down-fill"
+                (click)="disLikeServ()"
+              ></i>
+              <i class="bi bi-hand-thumbs-up-fill" (click)="likeServ()"></i>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4">
+            <div class="row-cont">
+              <label>
+                <input type="checkbox" name="td.name" [checked]="checkAll" />
+                <span>{{ "service" | translate }}</span>
+              </label>
+              <!-- controls -->
+              <div class="controls">
+                <i class="bi bi-eye"></i>
+                <i class="bi bi-hand-thumbs-down-fill"></i>
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+
+                <blockquote class="edit">
+                  <i class="bi bi-trash"></i>
+                  <i
+                    class="bi bi-pencil"
+                    [routerLink]="['../edit-service-file']"
+                  >
+                  </i>
+                </blockquote>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- row  -->
+
+        <!-- row  -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="btnControl">
+    <button class="btn btn-mainRed" [routerLink]="['../add-sub-service']">
+      <i class="bi bi-plus"></i>
+      <span>{{ "sub-service" | translate }}</span>
+    </button>
+  </div>
+</section>

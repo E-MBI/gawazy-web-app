@@ -1,0 +1,242 @@
+<section
+  class="my-service"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <header>{{ "make an offer" | translate }}</header>
+  <small>{{ "basic information" | translate }}</small>
+  <div class="content">
+    <form class="makeNewOffer" [formGroup]="makeNewOffer">
+      <!--! global info -->
+      <div class="box-one">
+        <blockquote class="info">
+          <label for="location">
+            <strong>{{ "location" | translate }}</strong>
+            <!-- gov -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="ar_name"
+                placeholder="كل المحافظات"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="name"
+                placeholder="All Governments"
+              ></p-dropdown>
+              }
+            </span>
+
+            <!-- city -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allCities"
+                optionLabel="ar_name"
+                placeholder="كل المدن"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allCities"
+                optionLabel="name"
+                placeholder="All Cities"
+              ></p-dropdown>
+              }</span
+            >
+          </label>
+        </blockquote>
+
+        <!-- *contact -->
+        <blockquote class="contact">
+          <!-- phone number -->
+          <label for="phone_number">
+            <strong>{{ "phone_number" | translate }}</strong>
+            <input type="number" formControlName="" class="input-text" />
+            <label for="showPhoneNumber">
+              <input
+                type="checkbox"
+                name="showPhoneNumber"
+                id="showPhoneNumber"
+              />
+              <span>{{ "show" | translate }}</span>
+            </label>
+          </label>
+
+          <!-- whatsapp number -->
+          <label for="whatsapp">
+            <strong>{{ "whatsapp" | translate }}</strong>
+            <input type="number" formControlName="" class="input-text" />
+            <label for="showWhatsapp">
+              <input type="checkbox" name="showWhatsapp" id="showWhatsapp" />
+              <span>{{ "show" | translate }}</span>
+            </label>
+          </label>
+
+          <!-- email number -->
+          <label for="email">
+            <strong>{{ "email" | translate }}</strong>
+            <input type="text" formControlName="" class="input-text" />
+            <label for="showEmail">
+              <input type="checkbox" name="showEmail" id="showEmail" />
+              <span>{{ "show" | translate }}</span>
+            </label>
+          </label>
+        </blockquote>
+      </div>
+
+      <!-- !text area for description -->
+      <blockquote class="desc">
+        <div class="user-cat">
+          <article>
+            <label for="individual">
+              <input
+                type="radio"
+                id="individual"
+                name="age"
+                value="individual"
+              />
+              <span>{{ "individual" | translate }}</span>
+            </label>
+
+            <label for="company">
+              <input type="radio" id="company" name="age" value="company" />
+              <span>{{ "company" | translate }}</span>
+            </label>
+          </article>
+
+          <label>
+            <span>{{ "service provider name" | translate }}</span>
+            <input
+              type="text"
+              class="form-control input-text"
+              placeholder="name"
+              readonly
+            />
+          </label>
+        </div>
+        <!-- ____________ -->
+        <label for="desc">
+          <strong>{{ "description" | translate }}</strong>
+          <textarea
+            class="form-control input-text"
+            rows="6"
+            name="desc"
+            id="desc"
+          ></textarea>
+        </label>
+      </blockquote>
+
+      <!--!  images -->
+      <div class="box-two">
+        <blockquote class="main-photo">
+          <label for="main-photo">
+            <button class="btn btn-mainRed">
+              {{ "main photo" | translate }}
+            </button>
+            <input type="file" hidden name="main-photo" id="main-photo" />
+            <small>{{ "image-size" | translate }}</small>
+          </label>
+        </blockquote>
+
+        <blockquote class="gallery">
+          <label for="gallery">
+            <button class="btn btn-mainRed">
+              {{ "add gallery" | translate }}
+            </button>
+            <input type="file" hidden name="gallery" id="gallery" />
+            <small>{{ "image-size" | translate }}</small>
+          </label>
+        </blockquote>
+
+        <blockquote class="video">
+          <label for="video">
+            <span>{{ "video link" | translate }}</span>
+            <input
+              type="text"
+              class="form-control input-text"
+              name="video"
+              id="video"
+              [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+              value="https://"
+            />
+            <!-- todo  >>>> ask for what it's doing? mr/khaled or eng/ omar -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="ar_name"
+                placeholder="كل المحافظات"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="name"
+                placeholder="All Governments"
+              ></p-dropdown>
+              }
+            </span>
+          </label>
+        </blockquote>
+      </div>
+
+      <!--! pricing -->
+      <blockquote
+        class="pricing"
+        [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+      >
+        <div class="cost">
+          <label for="offer_cost">
+            <span>{{ "offer cost" | translate }}</span>
+            <input
+              type="number"
+              class="form-control input-text"
+              id="offer_cost"
+              (keyup)="getOfferCost($event)"
+            />
+          </label>
+
+          <label for="inst_of">
+            <span>{{ "instead of" | translate }}</span>
+            <input
+              type="number"
+              class="form-control input-text"
+              id="inst_of"
+              (keyup)="getInstedPrice($event)"
+            />
+          </label>
+        </div>
+
+        <div class="discount">
+          <label for="discount">
+            <input
+              type="text"
+              class="form-control input-text"
+              id="discount"
+              value="{{ discountPercent + '%' }}"
+            />
+            <span>{{ "discount" | translate }}</span>
+          </label>
+        </div>
+      </blockquote>
+    </form>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-mainRed">{{ "save to draft" | translate }}</button>
+    <button class="btn btn-mainRed">{{ "publish" | translate }}</button>
+  </div>
+</section>

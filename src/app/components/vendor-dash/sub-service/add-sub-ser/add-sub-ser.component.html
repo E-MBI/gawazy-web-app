@@ -1,0 +1,250 @@
+<section
+  class="my-service"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <header>{{ "sub-service" | translate }}</header>
+
+  <div class="content">
+    <form class="subSerForm" [formGroup]="subSerForm">
+      <!--! global info -->
+      <div class="box-one">
+        <label for="service_name">
+          <span>
+            {{ "service name" | translate }}
+          </span>
+          <input
+            type="text"
+            class="form-control input-text"
+            id="service_name"
+          />
+        </label>
+
+        <blockquote class="info">
+          <label for="location">
+            <strong>{{ "location" | translate }}</strong>
+            <!-- gov -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="ar_name"
+                placeholder="كل المحافظات"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="name"
+                placeholder="All Governments"
+              ></p-dropdown>
+              }
+            </span>
+            <!-- city -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allCities"
+                optionLabel="ar_name"
+                placeholder="كل المدن"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allCities"
+                optionLabel="name"
+                placeholder="All Cities"
+              ></p-dropdown>
+              }</span
+            >
+          </label>
+        </blockquote>
+      </div>
+
+      <!-- !text area for description -->
+      <blockquote class="desc">
+        <!-- ____________ -->
+        <label for="desc">
+          <strong>{{ "description" | translate }}</strong>
+          <textarea
+            class="form-control input-text"
+            rows="6"
+            name="desc"
+            id="desc"
+          ></textarea>
+        </label>
+      </blockquote>
+
+      <!--!  images -->
+      <div class="box-two">
+        <blockquote class="gallery">
+          <label for="gallery">
+            <h4>{{ "gallery" | translate }}</h4>
+            <small>{{ "image-size" | translate }}</small>
+            <button class="btn btn-mainRed">
+              {{ "add gallery" | translate }}
+            </button>
+            <input type="file" hidden name="gallery" id="gallery" />
+          </label>
+        </blockquote>
+
+        <blockquote class="video">
+          <label for="video">
+            <span>{{ "video link" | translate }}</span>
+            <input
+              type="text"
+              class="form-control input-text"
+              name="video"
+              id="video"
+              [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+              value="https://"
+            />
+            <!-- todo  >>>> ask for what it's doing? mr/khaled or eng/ omar -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="ar_name"
+                placeholder="كل المحافظات"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="name"
+                placeholder="All Governments"
+              ></p-dropdown>
+              }
+            </span>
+          </label>
+        </blockquote>
+      </div>
+
+      <!-- <label for=""></label> -->
+    </form>
+
+    <!--! pricing -->
+    <!-- form tow for pricing  -->
+    <form class="pricingForm" [formGroup]="pricingForm">
+      <div class="price-cont">
+        <header>
+          <form>
+            <blockquote class="banner">
+              {{ "banner title" | translate }}
+            </blockquote>
+
+            <blockquote class="radio">
+              <label for="image">
+                <input type="radio" id="image" name="image" value="image" />
+                <span>{{ "image" | translate }}</span>
+              </label>
+
+              <label for="gallery-photo">
+                <input
+                  type="radio"
+                  id="gallery-photo"
+                  name="image"
+                  value="gallery-photo"
+                />
+                <span>{{ "gallery" | translate }}</span>
+              </label>
+            </blockquote>
+          </form>
+        </header>
+
+        <div class="priceOpitions">
+          <form>
+            <!-- todo make ngClass instance of if condition -->
+            <!-- opition one-->
+            <blockquote
+              class="option"
+              [ngClass]="{ 'dis-active': opition !== 1 }"
+              (click)="opition = 1"
+            >
+              <label for="service_coast">
+                <input
+                  type="radio"
+                  id="service_coast"
+                  name="price"
+                  value="service_coast"
+                />
+                <span>{{ "service coast" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="service_coast"
+                  id="service_coast"
+                />
+              </label>
+            </blockquote>
+
+            <!-- opition two -->
+            <blockquote
+              class="option"
+              [ngClass]="{ 'dis-active': opition !== 2 }"
+              (click)="opition = 2"
+            >
+              <label for="price-from">
+                <input
+                  type="radio"
+                  id="price-from"
+                  name="price"
+                  value="price-from"
+                />
+                <span>{{ "start from" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="price-from"
+                  id="price-from"
+                />
+              </label>
+            </blockquote>
+
+            <!-- opition three -->
+            <blockquote
+              class="option"
+              [ngClass]="{ 'dis-active': opition !== 3 }"
+              (click)="opition = 3"
+            >
+              <label for="form_to">
+                <input type="radio" id="form_to" name="price" value="form_to" />
+                <span>{{ "start from" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="form_to"
+                  id="form_to"
+                />
+                <span>{{ "to" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="form_to"
+                  id="form_to"
+                />
+              </label>
+            </blockquote>
+          </form>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-mainRed">{{ "save to draft" | translate }}</button>
+    <button class="btn btn-mainRed">{{ "publish" | translate }}</button>
+    <button class="btn btn-mainGreen">
+      {{ "add new subservice" | translate }}
+    </button>
+  </div>
+</section>

@@ -36,7 +36,7 @@ export class PageSectionComponent implements OnInit {
 
   showServices: any[] = [];
   first: number = 0;
-  rows: number = 4;
+  rows: number = 5;
   page: number = 1;
   pageCount: number = 0;
   lang: string = 'ar';
@@ -47,7 +47,7 @@ export class PageSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.showServices = this.serivces.slice(0, 4);
+    this.showServices = this.serivces.slice(0, 5);
     this.pageCount = Math.ceil(this.serivces.length / this.rows);
   }
 

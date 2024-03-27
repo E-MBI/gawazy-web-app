@@ -1,1 +1,27 @@
-<p>support works!</p>
+<section class="support">
+  <form>
+    <label for="subject">
+      <span>{{ "subject" | translate }}</span>
+      <input
+        type="text"
+        class="form-control input-text"
+        name="subject"
+        id="subject"
+      />
+    </label>
+
+    <label for="message">
+      <span>{{ "message" | translate }}</span>
+      <textarea
+        class="form-control input-text"
+        name="message"
+        id="message"
+        cols="30"
+        rows="10"
+      ></textarea>
+    </label>
+    <div class="control">
+      <button class="btn btn-mainRed">{{ "send" | translate }}</button>
+    </div>
+  </form>
+</section>

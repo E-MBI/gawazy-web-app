@@ -102,9 +102,9 @@ header {
       @include flex(row, flex-end, center, 1.4rem);
       .links {
         ul {
-          @include flex(row, center, center, 0.5rem);
+          @include flex(row, center, center, 0.8rem);
           li {
-            color: #707070;
+            color: var(--main-gr);
             font-weight: 600;
             cursor: pointer;
             // &:hover {

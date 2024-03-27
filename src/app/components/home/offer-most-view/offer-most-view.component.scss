@@ -21,6 +21,6 @@
   .servCont {
     margin-top: 1rem;
     padding-top: 1rem;
-    @include gridReapte(300px, center, center, 0.5rem);
+    @include gridReapte(250px, center, center, 0.5rem);
   }
 }

@@ -185,7 +185,7 @@ export class ServMostViewComponent {
 
   showServices: any[] = [];
   first: number = 0;
-  rows: number = 4;
+  rows: number = 5;
   page: number = 1;
   pageCount: number = 0;
   lang!: string;
@@ -195,7 +195,7 @@ export class ServMostViewComponent {
   }
 
   ngOnInit(): void {
-    this.showServices = this.services.slice(0, 4);
+    this.showServices = this.services.slice(0, 5);
     this.pageCount = Math.ceil(this.services.length / this.rows);
   }
 

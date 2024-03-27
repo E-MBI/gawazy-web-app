@@ -1,1 +1,26 @@
-<p>notification works!</p>
+<section
+  class="notify container"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <div class="cont">
+    @for (item of notifications; track $index) {
+    <blockquote>
+      <div class="info">
+        @if (false) {
+        <img src="" alt="" />
+        }@else{
+        <img src="/assets/images/home/user.jpg" alt="user photo" />
+        }
+
+        <h3 class="message">اعجب محمد سمير بعرضك</h3>
+      </div>
+
+      <div class="unRead">
+        @if (true) {
+        <span></span>
+        }
+      </div>
+    </blockquote>
+    }
+  </div>
+</section>

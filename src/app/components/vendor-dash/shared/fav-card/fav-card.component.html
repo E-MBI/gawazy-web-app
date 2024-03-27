@@ -1,0 +1,92 @@
+<div
+  class="card"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <div class="photo">
+    <i class="bi bi-heart-fill love" (click)="addToFav(item.id)"></i>
+    <div [routerLink]="[routeUrl]">
+      @if (item.image) {
+      <img [src]="item.image" class="card-img-top" alt="card image" />
+      }@else {
+      <img
+        src="/assets/images/home/placeholder.jpg"
+        class="card-img-top"
+        alt="default image"
+      />
+      }
+
+      <!--discount  -->
+      @if(item.discount){
+      <blockquote class="offer">
+        <p class="discount">
+          {{ "discount" | translate }} %{{ item.discount }}
+        </p>
+        <p class="period">{{ item.period }}</p>
+      </blockquote>
+      }
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="title">
+      <div class="name">
+        <h4>{{ item.name }}</h4>
+        <p>{{ item.city }}</p>
+      </div>
+
+      <blockquote class="price">
+        <p class="price-cont">
+          @if(lang=='ar'){
+          <strong>{{ "500.00" }} {{ item.currency_ar }} </strong>
+          @if(oldPrice){
+          <strong class="oldPrice"
+            >{{ "500.00" }} {{ item.currency_ar }}
+          </strong>
+          }
+          <!--  -->
+          }@else if (lang=='en') {
+          <strong>{{ "500.00" }} {{ item.currency }} </strong>
+          @if(oldPrice){
+          <strong class="oldPrice">{{ "500.00" }} {{ item.currency }} </strong>
+          } }
+        </p>
+
+        <!-- <strong>{{ "to" | translate }} {{ "1000.00" }}</strong> -->
+        <p class="stars">
+          @for (item of activeSt; track $index) {
+          <i class="bi bi-star-fill active"></i>
+          } @for (item of notActiveSt; track $index) {
+          <i class="bi bi-star notActive"></i>
+          }
+        </p>
+      </blockquote>
+    </div>
+
+    <div class="info">
+      <p>{{ item.category }}</p>
+    </div>
+
+    <div class="controls">
+      <a routerLink="{{ routeUrl }}" class="btn btn-mainRed">
+        {{ "more" | translate }}
+      </a>
+
+      <ul class="views">
+        <li>
+          <i class="bi bi-eye-fill"></i>
+        </li>
+        <li>
+          <i class="bi bi-hand-thumbs-up-fill"></i>
+        </li>
+
+        <li>
+          <i class="bi bi-hand-thumbs-down-fill"></i>
+        </li>
+
+        <li>
+          <i class="bi bi-share-fill"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

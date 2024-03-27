@@ -1,0 +1,320 @@
+<section
+  class="my-service"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <header>{{ "main service name" | translate }}</header>
+
+  <div class="content">
+    <form class="mySerForm" [formGroup]="mySerForm">
+      <!--! global info -->
+      <div class="box-one">
+        <blockquote class="info">
+          <label for="location">
+            <strong>{{ "location" | translate }}</strong>
+            <!-- gov -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="ar_name"
+                placeholder="كل المحافظات"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="name"
+                placeholder="All Governments"
+              ></p-dropdown>
+              }
+            </span>
+
+            <!-- city -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allCities"
+                optionLabel="ar_name"
+                placeholder="كل المدن"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allCities"
+                optionLabel="name"
+                placeholder="All Cities"
+              ></p-dropdown>
+              }</span
+            >
+          </label>
+        </blockquote>
+
+        <!-- *contact -->
+        <blockquote class="contact">
+          <!-- phone number -->
+          <label for="phone_number">
+            <strong>{{ "phone_number" | translate }}</strong>
+            <input type="number" formControlName="" class="input-text" />
+            <label for="showPhoneNumber">
+              <input
+                type="checkbox"
+                name="showPhoneNumber"
+                id="showPhoneNumber"
+              />
+              <span>{{ "show" | translate }}</span>
+            </label>
+          </label>
+
+          <!-- whatsapp number -->
+          <label for="whatsapp">
+            <strong>{{ "whatsapp" | translate }}</strong>
+            <input type="number" formControlName="" class="input-text" />
+            <label for="showWhatsapp">
+              <input type="checkbox" name="showWhatsapp" id="showWhatsapp" />
+              <span>{{ "show" | translate }}</span>
+            </label>
+          </label>
+
+          <!-- email number -->
+          <label for="email">
+            <strong>{{ "email" | translate }}</strong>
+            <input type="text" formControlName="" class="input-text" />
+            <label for="showEmail">
+              <input type="checkbox" name="showEmail" id="showEmail" />
+              <span>{{ "show" | translate }}</span>
+            </label>
+          </label>
+        </blockquote>
+      </div>
+
+      <!-- !text area for description -->
+      <blockquote class="desc">
+        <div class="user-cat">
+          <article>
+            <label for="individual">
+              <input
+                type="radio"
+                id="individual"
+                name="age"
+                value="individual"
+              />
+              <span>{{ "individual" | translate }}</span>
+            </label>
+
+            <label for="company">
+              <input type="radio" id="company" name="age" value="company" />
+              <span>{{ "company" | translate }}</span>
+            </label>
+          </article>
+
+          <label>
+            <span>{{ "service provider name" | translate }}</span>
+            <input
+              type="text"
+              class="form-control input-text"
+              placeholder="name"
+              readonly
+            />
+          </label>
+        </div>
+        <!-- ____________ -->
+        <label for="desc">
+          <strong>{{ "description" | translate }}</strong>
+          <textarea
+            class="form-control input-text"
+            rows="6"
+            name="desc"
+            id="desc"
+          ></textarea>
+        </label>
+      </blockquote>
+
+      <!--!  images -->
+      <div class="box-two">
+        <blockquote class="addImge">
+          <label for="profile">
+            <button class="btn btn-mainRed">
+              {{ "profile picture" | translate }}
+            </button>
+            <input type="file" hidden name="profile" id="profile" />
+            <small>المقاس المفضل 500x500</small>
+          </label>
+
+          <label for="cover">
+            <button class="btn btn-mainRed">
+              {{ "add cover" | translate }}
+            </button>
+            <input type="file" hidden name="cover" id="cover" />
+            <small>المقاس المفضل 500x500</small>
+          </label>
+        </blockquote>
+
+        <blockquote class="gallery">
+          <label for="gallery">
+            <h4>{{ "gallery" | translate }}</h4>
+            <button class="btn btn-mainRed">
+              {{ "add gallery" | translate }}
+            </button>
+            <input type="file" hidden name="gallery" id="gallery" />
+            <small>المقاس المفضل 1920 739</small>
+          </label>
+        </blockquote>
+
+        <blockquote class="video">
+          <label for="video">
+            <span>{{ "video link" | translate }}</span>
+            <input
+              type="text"
+              class="form-control input-text"
+              name="video"
+              id="video"
+              [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+              value="https://"
+            />
+            <!-- todo  >>>> ask for what it's doing? mr/khaled or eng/ omar -->
+            <span>
+              @if (lang=='ar') {
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="ar_name"
+                placeholder="كل المحافظات"
+              ></p-dropdown>
+
+              }@else if (lang=='en'){
+              <p-dropdown
+                formControlName="government_id"
+                [options]="allGovernments"
+                (onChange)="getCitiesForGovernment($event)"
+                optionLabel="name"
+                placeholder="All Governments"
+              ></p-dropdown>
+              }
+            </span>
+          </label>
+        </blockquote>
+      </div>
+
+      <!-- <label for=""></label> -->
+    </form>
+
+    <!--! pricing -->
+    <!-- form tow for pricing  -->
+    <form class="pricingForm" [formGroup]="pricingForm">
+      <div class="price-cont">
+        <header>
+          <form>
+            <blockquote class="banner">
+              {{ "banner title" | translate }}
+            </blockquote>
+
+            <blockquote class="radio">
+              <label for="image">
+                <input type="radio" id="image" name="image" value="image" />
+                <span>{{ "image" | translate }}</span>
+              </label>
+
+              <label for="gallery-photo">
+                <input
+                  type="radio"
+                  id="gallery-photo"
+                  name="image"
+                  value="gallery-photo"
+                />
+                <span>{{ "gallery" | translate }}</span>
+              </label>
+            </blockquote>
+          </form>
+        </header>
+
+        <div class="priceOpitions">
+          <form>
+            <!-- todo make ngClass instance of if condition -->
+            <!-- opition one-->
+            <blockquote
+              class="option"
+              [ngClass]="{ 'dis-active': opition !== 1 }"
+              (click)="opition = 1"
+            >
+              <label for="service_coast">
+                <input
+                  type="radio"
+                  id="service_coast"
+                  name="price"
+                  value="service_coast"
+                />
+                <span>{{ "service coast" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="service_coast"
+                  id="service_coast"
+                />
+              </label>
+            </blockquote>
+
+            <!-- opition two -->
+            <blockquote
+              class="option"
+              [ngClass]="{ 'dis-active': opition !== 2 }"
+              (click)="opition = 2"
+            >
+              <label for="price-from">
+                <input
+                  type="radio"
+                  id="price-from"
+                  name="price"
+                  value="price-from"
+                />
+                <span>{{ "start from" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="price-from"
+                  id="price-from"
+                />
+              </label>
+            </blockquote>
+
+            <!-- opition three -->
+            <blockquote
+              class="option"
+              [ngClass]="{ 'dis-active': opition !== 3 }"
+              (click)="opition = 3"
+            >
+              <label for="form_to">
+                <input type="radio" id="form_to" name="price" value="form_to" />
+                <span>{{ "start from" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="form_to"
+                  id="form_to"
+                />
+                <span>{{ "to" | translate }}</span>
+                <input
+                  type="number"
+                  class="form-control input-text"
+                  name="form_to"
+                  id="form_to"
+                />
+              </label>
+            </blockquote>
+          </form>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-mainGreen">{{ "save to draft" | translate }}</button>
+    <button class="btn btn-mainRed">{{ "publish" | translate }}</button>
+  </div>
+</section>

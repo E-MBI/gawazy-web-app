@@ -1,0 +1,343 @@
+@import "../../../../../assets/_general";
+.my-service {
+  header {
+    width: 30%;
+    padding-top: 1rem;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--border-co);
+    border-bottom: thin solid #929292;
+  }
+
+  .content {
+    .subSerForm {
+      // global information
+      .box-one {
+        margin-top: 1rem;
+        @include flex(column, space-between, flex-start, 0.8rem);
+        flex-wrap: wrap;
+        label[for="service_name"] {
+          width: 100%;
+          @include flex(row, flex-start, center, 0.5rem);
+          flex-wrap: wrap;
+          span {
+            display: inline-block;
+            white-space: nowrap;
+            font-weight: 600;
+            color: var(--border-co);
+          }
+
+          input {
+            width: 50%;
+          }
+        }
+
+        .info {
+          width: 64%;
+          @include flex(row, flex-start, flex-start, 0.5rem);
+          flex-wrap: wrap;
+          label {
+            width: 100%;
+            @include flex(row, flex-start, flex-start, 0.5rem);
+            strong {
+              font-weight: 600;
+              color: var(--border-co);
+            }
+
+            span {
+              width: 50%;
+            }
+          }
+        }
+
+        .contact {
+          width: 35%;
+          @include flex(column, flex-start, stretch, 0.5rem);
+          label {
+            width: 95%;
+            @include flex(row, flex-end, center, 0.5rem);
+            strong {
+              font-weight: 600;
+              color: var(--border-co);
+              white-space: nowrap;
+              font-size: 0.8rem;
+              text-align: center;
+            }
+            input {
+              width: 50%;
+              padding: 0rem;
+            }
+            input[type="number"] {
+              &::-webkit-outer-spin-button,
+              &::-webkit-inner-spin-button {
+                display: none;
+              }
+            }
+
+            // inside lable
+            label {
+              width: fit-content;
+              span {
+                width: fit-content;
+                cursor: pointer;
+                font-weight: 600;
+                color: var(--border-co);
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+
+      // desc
+      .desc {
+        margin-top: 0.5rem;
+        width: 100%;
+        .user-cat {
+          @include flex(column, flex-start, stretch, 0.3rem);
+          article {
+            // padding: 0rem 5rem;
+            @include flex(row, flex-start, center, 1.5rem);
+            label {
+              width: fit-content;
+              span {
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                color: var(--border-co);
+              }
+            }
+          }
+
+          label {
+            @include flex(row, flex-start, center, 0.3rem);
+            input {
+              width: fit-content;
+            }
+            span {
+              font-weight: 600;
+              font-size: 1rem;
+              cursor: pointer;
+              color: var(--border-co);
+            }
+          }
+        }
+        label {
+          strong {
+            font-weight: 600;
+            color: var(--border-co);
+            display: block;
+            margin-bottom: 0.3rem;
+          }
+
+          width: 100%;
+          textarea {
+            width: 60%;
+            font-weight: 500;
+            color: var(--main-gr);
+            border-top: 30px solid #c4c4c4;
+          }
+        }
+      }
+
+      // images
+      .box-two {
+        margin-top: 1rem;
+        .addImge {
+          @include flex(row, flex-start, center, 0.5rem);
+          label {
+            cursor: pointer;
+            @include flex(column, flex-start, center, 0.2rem);
+            pointer-events: fill;
+            width: fit-content;
+            button {
+              pointer-events: none;
+              padding: 0.5rem 2rem;
+              font-weight: 600;
+            }
+            small {
+              color: var(--border-co);
+              font-weight: 600;
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        .gallery {
+          margin-top: 1rem;
+          label {
+            @include flex(column, flex-start, flex-start, 0.2rem);
+            pointer-events: fill;
+            cursor: pointer;
+            h4 {
+              font-weight: 600;
+              color: var(--border-co);
+              font-size: 1.2rem;
+            }
+            button {
+              pointer-events: none;
+              padding: 0.5rem 2rem;
+              font-weight: 600;
+            }
+            small {
+              color: var(--border-co);
+              font-weight: 600;
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        .video {
+          margin-top: 1rem;
+          label {
+            @include flex(row, flex-start, center, 0.5rem);
+            width: fit-content;
+            span {
+              font-weight: 600;
+              color: var(--border-co);
+            }
+            input {
+              width: 40vw;
+            }
+            input.dir-ar {
+              text-align: left;
+            }
+            input.dir-en {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+
+    // ________ pricgin form _______
+    .pricingForm {
+      margin-top: 1rem;
+      .price-cont {
+        margin-top: 1rem;
+        header {
+          form {
+            .banner {
+              font-weight: 600;
+              font-size: 1rem;
+            }
+
+            .radio {
+              margin-top: 0.5rem;
+              font-weight: 500;
+              font-size: 1rem;
+              @include flex(row, flex-start, center, 0.5rem);
+              label {
+                cursor: pointer;
+                @include flex(row, flex-start, center, 0.3rem);
+                span {
+                  font-weight: 600;
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+        }
+
+        .priceOpitions {
+          margin-top: 1rem;
+          form {
+            @include flex(column, flex-start, flex-start, 0.5rem);
+            blockquote {
+              label {
+                @include flex(row, flex-start, center, 0.5rem);
+                span {
+                  white-space: nowrap;
+                  font-weight: 600;
+                  color: var(--border-co);
+                }
+                input {
+                  padding: 0.3rem;
+                }
+              }
+            }
+
+            .dis-active {
+              label {
+                cursor: pointer;
+                opacity: 0.6 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .controls {
+    margin-top: 1rem;
+    @include flex(row, flex-start, center, 0.5rem);
+  }
+}
+//__________________________Media Querey__________________________
+@media (max-width: 767px) {
+  .my-service {
+    header {
+      width: 80%;
+    }
+
+    form {
+      .box-one {
+        .info {
+          width: 100%;
+          label {
+            flex-direction: column;
+            span {
+              width: 100%;
+            }
+          }
+        }
+
+        .contact {
+          width: 100%;
+          label {
+            input {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .my-service {
+    header {
+      width: 50%;
+    }
+
+    form {
+      .box-one {
+        .info {
+          width: 100%;
+          label {
+            flex-direction: column;
+            span {
+              width: 100%;
+            }
+          }
+        }
+
+        .contact {
+          width: 100%;
+          label {
+            input {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//__________________________prime ng__________________________
+//__________________________prime ng__________________________

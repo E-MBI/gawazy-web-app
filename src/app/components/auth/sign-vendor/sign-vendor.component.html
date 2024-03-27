@@ -52,25 +52,19 @@
         placeholder=""
       /> -->
       @if (lang=='ar') {
-
       <p-dropdown
-        class="input-text"
         formControlName="category_id"
         [options]="allCategories"
         optionLabel="ar_name"
         placeholder="لن يتم تغيير نوع الخدمة بعد التسجيل"
       ></p-dropdown>
-
       }@else if (lang=='en'){
-
       <p-dropdown
-        class="input-text"
         formControlName="category_id"
         [options]="allCategories"
         optionLabel="name"
         placeholder="The service type not changed after register"
       ></p-dropdown>
-
       }
     </label>
 

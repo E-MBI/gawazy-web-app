@@ -1,1 +1,137 @@
-<p>favorite works!</p>
+<section
+  class="fav"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <!-- *__________ services ______________ -->
+  <div class="services">
+    <blockquote class="secHead">
+      <h3>
+        {{ "services" | translate }}
+      </h3>
+
+      <div class="paginator">
+        <p class="pages">
+          <span> {{ "page" | translate }}</span>
+          <span> {{ page }} </span>
+          <span> {{ "of" | translate }}</span>
+          <span> {{ pageCount }}</span>
+        </p>
+
+        <p-paginator
+          [first]="first"
+          [rows]="rows"
+          [totalRecords]="serivces.length"
+          (onPageChange)="navigationServices($event)"
+          [showJumpToPageDropdown]="false"
+          [showPageLinks]="false"
+          [showFirstLastIcon]="false"
+        ></p-paginator>
+
+        <!-- controls -->
+        <label for="checkAllSerSt">
+          <input
+            type="checkbox"
+            name="checkAllSerSt"
+            id="checkAllSerSt"
+            (change)="checkAllSerSt()"
+          />
+          <span>{{ "select all" | translate }}</span>
+        </label>
+      </div>
+    </blockquote>
+    <!-- cont -->
+    <ul class="servCont">
+      @for (item of showServices; track item.id) {
+      <li>
+        <input type="checkbox" [checked]="checkAllSer" />
+
+        <div class="item">
+          <app-fav-card
+            [item]="item"
+            routeUrl="/services/{{ item.id }}"
+          ></app-fav-card>
+        </div>
+
+        <div class="btnControl">
+          <button class="btn btn-mainRed">
+            <i class="bi bi-trash"></i>
+            <span>{{ "delete" | translate }}</span>
+          </button>
+        </div>
+      </li>
+
+      }@empty {
+      <div class="notFound">
+        {{ "Not Found" | translate }}
+      </div>
+      }
+    </ul>
+  </div>
+
+  <!-- *__________ offers ______________ -->
+  <div class="offers">
+    <blockquote class="secHead">
+      <h3>
+        {{ "offers" | translate }}
+      </h3>
+
+      <div class="paginator">
+        <p class="pages">
+          <span> {{ "page" | translate }}</span>
+          <span> {{ page }} </span>
+          <span> {{ "of" | translate }}</span>
+          <span> {{ pageCount }}</span>
+        </p>
+
+        <p-paginator
+          [first]="first"
+          [rows]="rows"
+          [totalRecords]="offers.length"
+          (onPageChange)="navigationOffers($event)"
+          [showJumpToPageDropdown]="false"
+          [showPageLinks]="false"
+          [showFirstLastIcon]="false"
+        ></p-paginator>
+
+        <!-- controls -->
+        <label for="checkAllOfferSt">
+          <input
+            type="checkbox"
+            name="checkAllOfferSt"
+            id="checkAllOfferSt"
+            (change)="checkAllOfferSt()"
+          />
+          <span>{{ "select all" | translate }}</span>
+        </label>
+      </div>
+    </blockquote>
+    <!-- cont -->
+    <ul class="servCont">
+      @for (item of showOffers; track item.id) {
+      <li>
+        <input type="checkbox" [checked]="checkAllOffer" />
+
+        <div class="item">
+          <app-fav-card
+            [item]="item"
+            routeUrl="/offers/{{ item.id }}"
+            [oldPrice]="true"
+          ></app-fav-card>
+        </div>
+
+        <div class="btnControl">
+          <button class="btn btn-mainRed">
+            <i class="bi bi-trash"></i>
+            <span>{{ "delete" | translate }}</span>
+          </button>
+        </div>
+      </li>
+
+      }@empty {
+      <div class="notFound">
+        {{ "Not Found" | translate }}
+      </div>
+      }
+    </ul>
+  </div>
+</section>

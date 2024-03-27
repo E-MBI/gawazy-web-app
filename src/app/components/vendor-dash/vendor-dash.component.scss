@@ -3,7 +3,7 @@
 .dash {
   margin: 0.3rem 0rem;
   height: 100%;
-  min-height: 80vh;
+  min-height: 90vh;
   position: relative;
   background-color: var(--main-ya);
   .dash-content {
@@ -25,8 +25,14 @@
   }
 }
 
+// ________________Responsive_________________
+// ________________Responsive_________________
+
 @media (max-width: 450px) {
   .dash {
+    .dash-content {
+      width: 100%;
+    }
     .sidebar {
       display: none;
     }
@@ -35,6 +41,10 @@
 
 @media (min-width: 451px) and (max-width: 767px) {
   .dash {
+    .dash-content {
+      width: 100%;
+      padding: 0rem 0.8rem;
+    }
     .sidebar {
       display: none;
     }
@@ -43,6 +53,10 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .dash {
+    .dash-content {
+      width: 100%;
+      padding: 0rem 0.8rem;
+    }
     .sidebar {
       display: none;
     }

@@ -1,1 +1,43 @@
-<p>chat works!</p>
+<section class="chat">
+  <aside class="sideMenu">
+    @for (item of sideUsers; track $index) {
+    <blockquote class="item">
+      <div class="userInfo">
+        <p class="image">
+          @if (false) {
+          <img src="" alt="" />
+          }@else {
+          <img src="/assets/images//home/placeholder.jpg" alt="" />
+          }
+        </p>
+
+        <p class="text">
+          <strong class="name">Mahmoud Ibrahim</strong>
+          <span class="desc"
+            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+            earum quos delectus?
+          </span>
+        </p>
+      </div>
+
+      <span class="view">
+        @if (false) {
+        <img src="" alt="" />
+        }@else {
+        <img src="/assets/images//home/placeholder.jpg" alt="" />
+        }
+      </span>
+    </blockquote>
+    }
+  </aside>
+
+  <article class="content">
+    <blockquote class="message-cont"></blockquote>
+    <footer>
+      <label for="">
+        <input type="text" name="message" id="message" />
+      </label>
+      <i class="bi bi-send-fill"></i>
+    </footer>
+  </article>
+</section>

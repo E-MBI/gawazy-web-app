@@ -1,0 +1,74 @@
+@import "../../../../assets/_general";
+
+.latestWork {
+  padding: 2rem;
+  header {
+    margin: 0rem auto;
+    margin-top: 2rem;
+    text-align: center;
+    width: 60%;
+    border-bottom: thin solid var(--border-co);
+    padding-bottom: 0.5rem;
+    label {
+      @include flex(column, center, stretch, 0.5rem);
+      i {
+        color: var(--main-re);
+        font-weight: bold;
+        font-size: 2.5rem;
+      }
+
+      span {
+        font-weight: 600;
+        color: var(--border-co);
+      }
+    }
+  }
+
+  .content {
+    @include flex(row, space-between, flex-start, 0.5rem);
+    padding: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    article {
+      .image {
+        width: 220px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 0.8rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      p {
+        width: 100%;
+        margin-top: 0.5rem;
+        @include flex(row, center, center, 0.3rem);
+        span {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: var(--vorder-co);
+        }
+      }
+    }
+  }
+}
+
+// ________________Responsive_________________
+// ________________Responsive_________________
+@media (max-width: 450px) {
+  .latestWork {
+    header {
+      width: 95%;
+    }
+  }
+}
+
+@media (min-width: 451px) and (max-width: 767px) {
+  .latestWork {
+    header {
+      width: 85%;
+    }
+  }
+}

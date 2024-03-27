@@ -152,6 +152,7 @@
   font-weight: 400;
   line-height: 1.5;
   border-radius: 0.2rem;
+  border: thin solid #ddd;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   outline: none;
   &:focus {
@@ -266,6 +267,23 @@
   .p-toast-icon-close {
     &:hover {
       background-color: transparent;
+    }
+  }
+
+  // drop down
+  p-dropdown.p-element {
+    padding: 0.5rem 0rem;
+    width: 100%;
+    .p-dropdown {
+      width: 100%;
+      color: var(--main-gr);
+    }
+
+    .p-dropdown:not(.p-disabled).p-focus {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: 0 0 0 0.2rem #66949ea7;
+      border-color: var(--main-gr);
     }
   }
 }

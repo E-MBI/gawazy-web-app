@@ -1,0 +1,92 @@
+@import "../../../../assets/_general";
+
+.notify {
+  display: flex;
+  justify-content: center;
+  .cont {
+    padding: 1rem;
+    @include flex(column, flex-start, center, 0.5rem);
+    max-height: 85vh;
+    overflow-y: scroll;
+    width: 50%;
+    margin: 1rem auto;
+    cursor: pointer;
+    &::-webkit-scrollbar {
+      width: 5px; /* Width of the scrollbar */
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--main-re); /* Color of the scrollbar handle */
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--main-btn); /* Color of the scrollbar handle on hover */
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Color of the scrollbar track */
+    }
+
+    /* Track on hover */
+    &::-webkit-scrollbar-track:hover {
+      background: #ccc; /* Color of the scrollbar track on hover */
+    }
+
+    blockquote {
+      width: 100%;
+      @include flex(row, space-between, center, 2rem);
+      padding: 0.5rem;
+      border-bottom: thin solid var(--border-co);
+      .info {
+        @include flex(row, flex-start, center, 1rem);
+        img {
+          width: 50px;
+          border-radius: 50%;
+          border: thin solid #ddd;
+        }
+        .message {
+          color: var(--main-gr);
+          font-weight: 600;
+          font-size: 1.4rem;
+          margin-bottom: 0rem;
+          white-space: nowrap;
+        }
+      }
+
+      .unRead {
+        width: 20%;
+        text-align: center;
+        span {
+          display: block;
+          width: 0px;
+          padding: 0.3rem;
+          border-radius: 50%;
+          background-color: var(--main-re);
+          margin: 0rem auto;
+        }
+      }
+    }
+  }
+}
+
+//_________________ Rresponsive ______________
+//_________________ Rresponsive ______________
+
+@media (max-width: 450px) {
+  .notify {
+    .cont {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 451px) and (max-width: 767px) {
+  .notify {
+    .cont {
+      width: 80%;
+    }
+  }
+}

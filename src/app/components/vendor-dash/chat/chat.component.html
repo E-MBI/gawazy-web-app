@@ -1,1 +1,54 @@
-<p>chat works!</p>
+<section
+  class="chat"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <aside class="sideMenu">
+    @for (item of sideUsers; track $index) {
+    <blockquote class="item">
+      <div class="userInfo">
+        <p class="image">
+          @if (false) {
+          <img src="" alt="" />
+          }@else {
+          <img src="/assets/images/category/1.jpg" />
+          }
+        </p>
+
+        <p class="text">
+          <strong class="name">Mahmoud Ibrahim</strong>
+          <span class="desc"
+            >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga
+            earum quos delectus?
+          </span>
+        </p>
+      </div>
+
+      <span class="view">
+        @if (false) {
+        <img src="" />
+        }@else {
+        <img src="/assets/images/home/user.jpg" />
+        }
+      </span>
+    </blockquote>
+    }
+  </aside>
+  <!-- *content -->
+
+  <article class="content">
+    <blockquote class="message-cont">cont</blockquote>
+    <!-- footer -->
+    <footer>
+      <label for="message">
+        <input
+          type="text"
+          class="form-control input-text"
+          name="message"
+          id="message"
+        />
+      </label>
+
+      <i class="bi bi-send-fill"></i>
+    </footer>
+  </article>
+</section>

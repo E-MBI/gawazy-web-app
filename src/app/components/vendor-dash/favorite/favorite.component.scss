@@ -1,0 +1,150 @@
+@import "../../../../assets/_general";
+
+.fav {
+  padding: 2rem;
+  .services,
+  .offers {
+    margin-top: 1.5rem;
+    .secHead {
+      margin: 0rem;
+      width: 100%;
+      @include flex(row, space-between, center, 0.5rem);
+      flex-wrap: wrap;
+      h3 {
+        margin: 0rem;
+        color: var(--border-co);
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        border-bottom: thin solid var(--border-co);
+        width: 45%;
+      }
+
+      .paginator {
+        @include flex(row, space-between, center, 0.5rem);
+
+        .pages {
+          color: var(--main-gr);
+          span {
+            font-weight: 800;
+          }
+        }
+
+        label {
+          @include flex(row, center, center, 0.5rem);
+          span {
+            font-weight: 600;
+            color: #717171;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .servCont {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      @include gridReapte(250px, center, center, 0.5rem);
+      li {
+        // .item{}
+
+        // btn controls
+        .btnControl {
+          margin-top: 0.5rem;
+          width: 100%;
+          text-align: center;
+          .btn {
+            padding: 0.3rem;
+            width: fit-content;
+            position: relative;
+            padding-right: 1rem;
+            pointer-events: fill;
+            i {
+              display: flex;
+              position: absolute;
+              pointer-events: none;
+              top: -3%;
+              right: -15%;
+              padding: 0.5rem;
+              font-size: 1.2rem;
+              font-weight: 600;
+              border: thin solid #ddd;
+              border-radius: 50%;
+              color: var(--main-gr);
+              background: #ffffff;
+            }
+            span {
+              display: inline-block;
+              padding-right: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // ___________offers______________
+  .offers {
+  }
+}
+
+// ______________ Responsive _________________
+// ______________ Responsive _________________
+
+@media (min-width: 450rem) {
+  .fav {
+    .services {
+      .secHead {
+        h3 {
+          width: 70%;
+        }
+      }
+    }
+
+    .offers {
+    }
+  }
+}
+
+@media (min-width: 451rem) and (max-width: 767px) {
+  .fav {
+    .services {
+      .secHead {
+        h3 {
+          width: 70%;
+        }
+      }
+    }
+
+    .offers {
+    }
+  }
+}
+
+// ______________ prime ng  _________________
+// ______________ prime ng  _________________
+:host ::ng-deep {
+  // paginator
+  .p-paginator.p-component {
+    flex-wrap: nowrap;
+    background-color: transparent;
+    .p-paginator-prev,
+    .p-paginator-next {
+      &:hover {
+        background: transparent;
+        border-color: transparent;
+        color: var(--main-re);
+      }
+      > .p-element.p-icon-wrapper {
+        padding: 0.3rem;
+        background-color: #f1f1f1;
+        color: var(--main-re);
+        border-radius: 0.2rem;
+        > svg {
+          // color: var(--main-re);
+          width: fit-content;
+          height: 3vh;
+        }
+      }
+    }
+  }
+}

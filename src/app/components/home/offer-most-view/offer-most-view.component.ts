@@ -183,7 +183,7 @@ export class OfferMostViewComponent {
 
   showOffers: any[] = [];
   first: number = 0;
-  rows: number = 4;
+  rows: number = 5;
   page: number = 1;
   pageCount: number = 0;
   lang!: string;
@@ -194,7 +194,7 @@ export class OfferMostViewComponent {
   }
 
   ngOnInit(): void {
-    this.showOffers = this.offers.slice(0, 4);
+    this.showOffers = this.offers.slice(0, 5);
     this.pageCount = Math.ceil(this.offers.length / this.rows);
   }
 

@@ -70,7 +70,7 @@ export class ServiceDetailsComponent implements OnInit {
     },
   ];
   first: number = 0;
-  rows: number = 4;
+  rows: number = 5;
   page: number = 1;
   pageCount: number = 0;
   // ____________________________________
@@ -83,7 +83,7 @@ export class ServiceDetailsComponent implements OnInit {
   // ____________________________________
 
   ngOnInit(): void {
-    this.showServices = this.serivces.slice(0, 4);
+    this.showServices = this.serivces.slice(0, 5);
     this.pageCount = Math.ceil(this.serivces.length / this.rows);
   }
 

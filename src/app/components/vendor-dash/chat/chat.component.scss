@@ -1,0 +1,117 @@
+@import "../../../../assets/_general";
+
+.chat {
+  width: 100%;
+  @include flex(row, flex-start, stretch, 0.5rem);
+  flex-wrap: nowrap;
+  padding: 0.5rem;
+  .sideMenu {
+    width: 40%;
+    padding: 0.8rem;
+    background-color: var(--white);
+    min-height: 85vh;
+    max-height: 85vh;
+    overflow-y: scroll;
+    border: 0.25px solid var(--border-co);
+    border-radius: 5px;
+    cursor: pointer;
+    @include flex(column, flex-start, stretch, 1.5rem);
+    /* Track */
+    &::-webkit-scrollbar {
+      width: 10px; /* Width of the scrollbar */
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--main-re); /* Color of the scrollbar handle */
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--main-btn); /* Color of the scrollbar handle on hover */
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Color of the scrollbar track */
+    }
+
+    /* Track on hover */
+    &::-webkit-scrollbar-track:hover {
+      background: #ccc; /* Color of the scrollbar track on hover */
+    }
+
+    .item {
+      @include flex(row, space-between, center, 0.5rem);
+      .userInfo {
+        @include flex(row, flex-start, flex-start, 0.5rem);
+        .image {
+          width: 120px;
+          height: 68px;
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+          }
+        }
+
+        .text {
+          @include flex(column, flex-start, flex-start, 0rem);
+          .name {
+            color: var(--main-gr);
+            font-weight: 600;
+            font-size: 1.2rem;
+          }
+          .desc {
+            line-height: 1.2;
+            display: inline-block;
+          }
+        }
+      }
+
+      .view {
+        display: inline-block;
+        width: 40px;
+        img {
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .content {
+    border: 0.25px solid var(--border-co);
+    border-radius: 5px;
+    width: 60%;
+    background-color: var(--white);
+    @include flex(column, space-between, stretch, 0.5rem);
+    .message-cont {
+      padding: 0.8rem;
+      @include flex(column, flex-end, stretch, 0.5rem);
+      height: 80%;
+    }
+
+    footer {
+      padding: 0.5rem 0rem;
+      height: 20%;
+      @include flex(row, space-evenly, center, 0.5rem);
+      flex-wrap: nowrap;
+      border-top: 1px solid #ddd;
+      label {
+        width: 90%;
+        input {
+          border-radius: 25px;
+          overflow: hidden;
+          width: 100%;
+        }
+      }
+      i {
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: var(--border-co);
+        cursor: pointer;
+      }
+    }
+  }
+}

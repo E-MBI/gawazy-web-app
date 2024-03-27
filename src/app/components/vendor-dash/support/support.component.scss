@@ -1,0 +1,25 @@
+@import "../../../../assets/_general";
+
+.support {
+  text-align: center;
+  padding: 1rem;
+  form {
+    width: 80%;
+    margin: 2rem auto;
+    @include flex(column, center, stretch, 0.8rem);
+
+    label {
+      @include flex(column, flex-start, flex-end, 0.5rem);
+      span {
+        font-weight: 600;
+        color: var(--border-co);
+        font-size: 1rem;
+      }
+    }
+
+    .control {
+      width: 100%;
+      @include flex(row, flex-start, center, 0rem);
+    }
+  }
+}

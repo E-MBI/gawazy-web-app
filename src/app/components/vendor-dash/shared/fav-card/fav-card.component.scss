@@ -1,0 +1,190 @@
+@import "../../../../../assets/_general";
+
+.card {
+  padding: 0rem;
+  // box-shadow: 0px 3px 6px #66949e;
+  cursor: pointer;
+  pointer-events: fill;
+  border: 0.25px solid var(--border-co);
+
+  .photo {
+    position: relative;
+    img {
+      height: 250px;
+      object-fit: cover;
+      border-radius: 0.3rem;
+    }
+
+    .love {
+      padding: 0.4rem;
+      position: absolute;
+      top: 3%;
+      right: 3%;
+      font-size: 1.2rem;
+      color: var(--white);
+      cursor: pointer;
+      display: flex;
+      background: #539379;
+      border-radius: 50%;
+    }
+
+    .love.active {
+      color: #ff3e42;
+    }
+
+    .offer {
+      position: absolute;
+      top: 20%;
+      left: 0%;
+      .discount {
+        padding: 0.2rem 0.6rem;
+        background-color: var(--main-re);
+        color: var(--white);
+        font-weight: 800;
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+      }
+      .period {
+        margin-top: 0.3rem;
+        padding: 0rem 0.3rem;
+        font-weight: 800;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--border-co);
+        background-color: var(--main-ya);
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+      }
+    }
+  }
+
+  .card-body {
+    padding: 0.5rem;
+    .title {
+      margin-top: 0.2rem;
+      @include flex(row, space-between, flex-start, 0.5rem);
+      .name {
+        h4 {
+          font-weight: 800;
+          font-size: 1rem;
+          color: var(--border-co);
+          white-space: nowrap;
+          margin-bottom: 0rem;
+        }
+        p {
+          font-weight: 600;
+          color: var(--border-co);
+        }
+      }
+
+      .price {
+        @include flex(column, flex-start, flex-end, 0rem);
+        .price-cont {
+          @include flex(row-reverse, flex-start, flex-end, 0.5rem);
+          strong {
+            color: var(--main-btn);
+            font-size: 0.8rem;
+            white-space: nowrap;
+          }
+
+          .oldPrice {
+            color: var(--main-btn);
+            position: relative;
+            &::after {
+              content: "";
+              background-color: var(--main-btn);
+              width: 65%;
+              height: 1px;
+              position: absolute;
+              top: 35%;
+              left: 22%;
+              transform: rotate(45deg);
+              transform-origin: center;
+            }
+          }
+        }
+
+        .stars {
+          @include flex(row, center, center, 0.2rem);
+          i {
+            font-size: 1rem;
+            cursor: pointer;
+          }
+          .active {
+            color: #ffc900;
+          }
+          .notActive {
+            color: #ababab;
+          }
+        }
+      }
+    }
+
+    .info {
+      width: 100%;
+      text-align: right;
+      margin-bottom: 0.5rem;
+      p {
+        color: var(--main-btn);
+        font-weight: 600;
+      }
+    }
+
+    // .rating {
+    //   width: 100%;
+    //   .stars {
+    //     @include flex(row, center, center, 0.5rem);
+    //     i {
+    //       font-size: 1.3rem;
+    //       cursor: pointer;
+    //     }
+    //     .active {
+    //       color: #ffc900;
+    //     }
+    //     .notActive {
+    //       color: #ababab;
+    //     }
+    //   }
+    //   .views {
+    //     margin-top: 0.3rem;
+    //     @include flex(row, center, center, 0.6rem);
+    //     li {
+    //       @include flex(column, flex-start, center, 0rem);
+    //       i {
+    //         color: var(--main-gr);
+    //         font-size: 1.3rem;
+    //       }
+    //       span {
+    //         color: var(--main-btn);
+    //       }
+    //     }
+    //   }
+    // }
+
+    .controls {
+      @include flex(row, space-between, center, 0.5rem);
+      .views {
+        margin-top: 0.3rem;
+        @include flex(row, center, center, 0.6rem);
+        li {
+          @include flex(column, flex-start, center, 0rem);
+          i {
+            color: var(--border-co);
+            font-size: 1.3rem;
+          }
+          span {
+            color: var(--main-btn);
+          }
+        }
+      }
+
+      a {
+        width: fit-content;
+        padding: 0.3rem 1rem;
+        border-radius: 5rem;
+        font-weight: 800;
+        background-color: var(--main-btn);
+      }
+    }
+  }
+}

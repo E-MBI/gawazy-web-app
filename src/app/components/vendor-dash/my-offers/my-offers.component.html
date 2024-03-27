@@ -1,0 +1,79 @@
+<section
+  class="offers"
+  [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+>
+  <div class="content">
+    <blockquote
+      class="head"
+      [ngClass]="{ 'ps-3': lang == 'ar', 'pe-3': lang == 'en' }"
+    >
+      <h2>{{ "my offers" | translate }}</h2>
+      <label for="selectAll">
+        <input
+          type="checkbox"
+          name="selectAll"
+          id="selectAll"
+          (change)="checkAllSt()"
+        />
+        <span>{{ "select all" | translate }}</span>
+      </label>
+    </blockquote>
+
+    <!-- table -->
+    <table
+      class="table"
+      [dir]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }"
+    >
+      <thead>
+        <tr>
+          <th scope="col">{{ "offer name" | translate }}</th>
+          <th scope="col">{{ "price before" | translate }}</th>
+          <th scope="col">{{ "price after" | translate }}</th>
+          <th scope="col">{{ "from" | translate }}</th>
+          <th scope="col">{{ "to" | translate }}</th>
+          <th scope="col">{{ "location" | translate }}</th>
+          <th scope="col">
+            <div class="controls">
+              <i class="bi bi-eye"></i>
+              <i
+                class="bi bi-hand-thumbs-down-fill"
+                (click)="disLikeServ()"
+              ></i>
+              <i class="bi bi-hand-thumbs-up-fill" (click)="likeServ()"></i>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="7">
+            <div class="row-cont">
+              <label>
+                <input type="checkbox" name="td.name" [checked]="checkAll" />
+                <span>{{ "offer" | translate }}</span>
+              </label>
+              <!-- controls -->
+              <div class="controls">
+                <i class="bi bi-eye"></i>
+                <i class="bi bi-hand-thumbs-down-fill"></i>
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+
+                <blockquote class="edit">
+                  <i class="bi bi-trash"></i>
+                  <i class="bi bi-pencil" [routerLink]="['../make-offer']"></i>
+                </blockquote>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="btnControl">
+    <button class="btn btn-mainRed" [routerLink]="['../make-offer']">
+      <i class="bi bi-plus"></i>
+      <span>{{ "make new offer" | translate }}</span>
+    </button>
+  </div>
+</section>

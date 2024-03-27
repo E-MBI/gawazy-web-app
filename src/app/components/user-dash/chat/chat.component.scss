@@ -1,0 +1,10 @@
+@import "../../../../assets/_general";
+
+.chat {
+  @include flex(row, flex-start, stretch, 0.5rem);
+  .sideMenu {
+  }
+
+  .content {
+  }
+}

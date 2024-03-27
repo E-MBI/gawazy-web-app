@@ -182,7 +182,7 @@ export class OfferCompComponent {
 
   showOffers: any[] = [];
   first: number = 0;
-  rows: number = 4;
+  rows: number = 5;
   page: number = 1;
   pageCount: number = 0;
   lang!: string;
@@ -191,7 +191,7 @@ export class OfferCompComponent {
     this.glSer.$langObs.subscribe((val) => (this.lang = val));
   }
   ngOnInit(): void {
-    this.showOffers = this.offers.slice(0, 4);
+    this.showOffers = this.offers.slice(0, 5);
     this.pageCount = Math.ceil(this.offers.length / this.rows);
   }
 

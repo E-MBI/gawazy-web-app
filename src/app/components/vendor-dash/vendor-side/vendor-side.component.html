@@ -1,29 +1,84 @@
 <section class="userSide">
-  <header>
+  <header [ngClass]="{ 'dir-ar': lang == 'ar', 'dir-en': lang == 'en' }">
     @if (false) {
     <img src="image.url" alt="User image" />
     }@else {
     <img src="/assets/images/home/user.jpg" alt="default user image" />
     }
 
-    <!-- name -->
+    <div class="text">
+      <!-- name -->
+      <h3 class="usName">{{ "user  Name" }}</h3>
 
-    <h3 class="usName">{{ "user  Name" }}</h3>
+      <p>
+        {{ "اسم الخدمه الرئيسية" }}
+      </p>
+      <!-- action -->
+      <label for="change_image">
+        <button class="btn changeImage">
+          <span>{{ "edit" | translate }}</span>
+          <i class="bi bi-pencil-square"></i>
+        </button>
 
-    <!-- action -->
-    <label for="change_image">
-      <button class="btn changeImage">
-        <span>{{ "edit" | translate }}</span>
-        <i class="bi bi-pencil-square"></i>
-      </button>
-
-      <input type="file" name="change_image" hidden id="change_image" />
-    </label>
+        <input type="file" name="change_image" hidden id="change_image" />
+      </label>
+    </div>
   </header>
+
   <ul class="tabs" [ngClass]="{ 'dir-ar': lang == 'ar' }">
+    <li
+      class="dropDown"
+      [ngClass]="{ 'active-tab': openSerMenu }"
+      appClickOutSide
+      (clickOutSide)="servicesMenu(false)"
+      (click)="servicesMenu(true)"
+    >
+      <div class="tab">
+        <i class="bi bi-person-gear"></i>
+        <span>{{ "my services" | translate }}</span>
+      </div>
+
+      @if (openSerMenu) {
+      <ul class="servMenu">
+        <li routerLink="my-services" routerLinkActive="active">
+          <span>{{ "eidt main service " | translate }}</span>
+        </li>
+
+        <li routerLink="sub-services" routerLinkActive="active">
+          <span>{{ "add subservice" | translate }}</span>
+        </li>
+      </ul>
+      }
+    </li>
+
+    <li routerLink="draft" routerLinkActive="active-tab">
+      <i class="bi bi-archive"></i>
+      <span>{{ "draft" | translate }}</span>
+    </li>
+
+    <li routerLink="latest-work" routerLinkActive="active-tab">
+      <i class="bi bi-briefcase"></i>
+      <span>{{ "latest work" | translate }}</span>
+    </li>
+
+    <li class="myoffers" routerLink="my-offers" routerLinkActive="active-tab">
+      <i class="bi bi-percent"></i>
+      <span>{{ "my offers" | translate }}</span>
+    </li>
+
     <li routerLink="favorite" routerLinkActive="active-tab">
       <i class="bi bi-heart-fill"></i>
       <span>{{ "my favorite" | translate }}</span>
+    </li>
+
+    <li routerLink="chat" routerLinkActive="active-tab">
+      <i class="bi bi-chat-dots"></i>
+      <span>{{ "my messages" | translate }}</span>
+    </li>
+
+    <li class="makeOffer" routerLink="make-offer" routerLinkActive="active-tab">
+      <i class="bi bi-plus"></i>
+      <span>{{ "make an offer" | translate }}</span>
     </li>
 
     <li routerLink="notification" routerLinkActive="active-tab">
@@ -34,11 +89,6 @@
     <li routerLink="settings" routerLinkActive="active-tab">
       <i class="bi bi-gear"></i>
       <span>{{ "my settings" | translate }}</span>
-    </li>
-
-    <li routerLink="chat" routerLinkActive="active-tab">
-      <i class="bi bi-chat-dots"></i>
-      <span>{{ "my messages" | translate }}</span>
     </li>
 
     <li routerLink="support" routerLinkActive="active-tab">
